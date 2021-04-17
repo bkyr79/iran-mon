@@ -22,3 +22,7 @@ Route::get('/form',
 Route::post('/upload', 
 	[App\Http\Controllers\ItemController::class, "upload"]
 	)->name("upload_image");
+
+Route::get('/list',
+    [App\Http\Controllers\ItemListController::class, "show"]
+    )->name("item_list");
