@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/form', 
+	[App\Http\Controllers\ItemController::class, "show"]
+	)->name("upload_form");
+
+Route::post('/upload', 
+	[App\Http\Controllers\ItemController::class, "upload"]
+	)->name("upload_image");
