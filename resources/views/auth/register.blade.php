@@ -41,7 +41,7 @@
       </div>
       <div class="form-group @error('password')has-error @enderror">
         <label>パスワード</label>
-        <em>6文字以上入力してください</em>
+        <em>8文字以上入力してください</em>
         <input type="password" name="password" class="form-control" placeholder="パスワードを入力してください">
         @error('password')
             <span class="errorMessage">
