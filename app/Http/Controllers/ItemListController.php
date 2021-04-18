@@ -8,7 +8,7 @@ use App\Item;
 class ItemListController extends Controller
 {
     function show(){
-        $uploads = Item::orderBy("updated_at", "desc")->get();
+        $uploads = Item::orderBy("id", "desc")->get();
 
         return view("item_list", [
             "images" => $uploads
