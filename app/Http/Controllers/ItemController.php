@@ -13,9 +13,9 @@ class ItemController extends Controller
 
     function upload(Request $request){
 		$request->validate([
-			'photo' => 'required|file|image|mimes:png,jpeg'
+			'file_path' => 'required|file|image|mimes:png,jpeg'
 		]);
-		$upload_image = $request->file('photo');
+		$upload_image = $request->file('file_path');
 	
 		if($upload_image) {
 			//アップロードされた画像を保存する

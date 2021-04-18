@@ -29,7 +29,3 @@ Route::get('/list',
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/provisional_confirm', function () {
-    return view('provisional_confirm');
-});
