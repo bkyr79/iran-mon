@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Item;
+// use Illuminate\Support\Facades\Auth; 
+use Auth;
 
 class ItemController extends Controller
 {
@@ -20,9 +22,14 @@ class ItemController extends Controller
 		if($upload_image) {
 			//アップロードされた画像を保存する
 			$path = $upload_image->store('uploads',"public");
-			//画像の保存に成功したらDBに記録する
+			$user_id = Auth::id(); //『Auth::id()』でログイン中のidを取得できる
+            
+            //画像の保存に成功したらDBに記録する
 			if($path){
 				Item::create([
+                    //ログイン中ユーザーIDを取得
+                    "user_id" => $user_id,
+                    
 					"file_name" => $upload_image->getClientOriginalName(),
 					"file_path" => $path
 				]);

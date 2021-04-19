@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     protected $table = "item";
-    protected $fillable = ["file_name", "file_path", "file_size"];
+
+    //アップロードする際に必要なカラムを記載しておく
+    protected $fillable = ["user_id", "file_name", "file_path", "file_size"];
 }
