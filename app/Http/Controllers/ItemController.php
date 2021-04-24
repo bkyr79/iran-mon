@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Item;
-// use Illuminate\Support\Facades\Auth; 
 use Auth;
 
 class ItemController extends Controller

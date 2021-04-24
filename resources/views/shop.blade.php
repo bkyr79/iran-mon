@@ -6,8 +6,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <!-- ユーザー名を表示 -->
-<p>{{ Auth::user()->name }}さんのマイページ</p>
-<a href="{{ route('upload_form') }}">Upload</a>
+<!-- これは間違え。改善要 → ×ログイン中のユーザー ○他ショップのオーナー（=他ユーザー） -->
+<p>{{ Auth::user()->name }}さんのショップ</p>
 <hr />
 
 @foreach($images as $image)
@@ -16,3 +16,30 @@
   <p>{{ $image->file_name }}</p>
 </div>
 @endforeach
+
+<!-- Modal -->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">確認</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                購入しますか？
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">いいえ</button>
+                <button type="submit" class="btn btn-success" id="deletebtn" name="deletebtn" >はい</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.delete-confirm').click(function(){
+        $('#deletebtn').val( $(this).val() );
+    });
+</script>
