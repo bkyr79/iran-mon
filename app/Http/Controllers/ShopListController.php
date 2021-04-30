@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\DB;
 class ShopListController extends Controller
 {
     function index(){
-        $shop_owner_id = DB::table('item')->distinct()->select('user_id')->get();
+        $shop_owner_id = DB::table('users')->get();
 
         return view("shop_list", [
-            "shop_owner_id" => $shop_owner_id
-        ]);
+            "shop_owner_id" => $shop_owner_id,
+        ]);    
     }
 }

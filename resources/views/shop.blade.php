@@ -7,18 +7,25 @@
 
 <!-- ユーザー名を表示 -->
 <!-- これは間違え。改善要 → ×ログイン中のユーザー ○他ショップのオーナー（=他ユーザー） -->
-<p>{{ Auth::user()->name }}さんのショップ</p>
+<p>{{ Auth::user()->name }}さんがログイン中</p>
+<p>{{ $owner_name }}さんのショップ</p>
 <hr />
 
 @foreach($images as $image)
-<div  type="button" class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; float: left; margin: 16px;">
-  <img src="{{ Storage::url($image->file_path) }}" style="width: 100%;"/>
-  <p>{{ $image->file_name }}</p>
-</div>
+<!-- </form>はmodalのsubmitの下に記載してある -->
+<form action="/shop" method="post">
+    @method('delete')
+    @csrf
+    <!-- nameプロバティとvalueプロパティがポイント -->
+    <button type="button" class="buy-confirm btn btn-success" name="id" value="{{ $image->id }}" data-toggle="modal" data-target="#confirm-buy" style="width: 18rem; float: left; margin: 16px;">
+        <img src="{{ Storage::url($image->file_path) }}" style="width: 100%;"/>
+        <p>{{ $image->file_name }}</p>
+    </button>
 @endforeach
 
 <!-- Modal -->
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog">
+@foreach($images as $image)
+<div class="modal fade" id="confirm-buy" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -32,14 +39,18 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">いいえ</button>
-                <button type="submit" class="btn btn-success" id="deletebtn" name="deletebtn" >はい</button>
+                <!-- 商品imageと同じidを持たせることで、同じvalueを持たせることになる -->
+                <button type="submit" class="btn btn-success" id="buybtn" name="id">はい</button>
+</form>
             </div>
         </div>
     </div>
 </div>
+@endforeach
 
 <script>
-    $('.delete-confirm').click(function(){
-        $('#deletebtn').val( $(this).val() );
+    $('.buy-confirm').click(function(){
+        $('#buybtn').val( $(this).val() );
     });
 </script>
+

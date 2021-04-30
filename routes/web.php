@@ -30,10 +30,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/shop', function () {
-    return view('shop');
-    });
+// Route::get('/shop', function () {
+//     return view('shop');
+//     });
 
-Route::get('/shop', 
+Route::post('/shop', 
     [App\Http\Controllers\ShopController::class, "show"]
     )->name("item_list");
+
+Route::delete('/shop', 'ShopController@delete')->name('delete');
+
+Route::get('/shoplist', 'ShopListController@index');

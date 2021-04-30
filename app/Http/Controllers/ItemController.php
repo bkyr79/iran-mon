@@ -26,12 +26,12 @@ class ItemController extends Controller
             //画像の保存に成功したらDBに記録する
 			if($path){
 				Item::create([
-                    //ログイン中ユーザーIDを取得
-                    "user_id" => $user_id,
-                    
-					"file_name" => $upload_image->getClientOriginalName(),
-					"file_path" => $path
-				]);
+          //ログイン中ユーザーIDを取得
+          "user_id" => $user_id,
+
+          "file_name" => $upload_image->getClientOriginalName(),
+          "file_path" => $path
+        ]);
 			}
 		}
 		return redirect("/list");
