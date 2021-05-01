@@ -13,11 +13,16 @@
 
 @foreach($images as $image)
 <!-- </form>はmodalのsubmitの下に記載してある -->
-<form action="/shop" method="post">
-    @method('delete')
+<form action="/list" method="post">
+    <!-- @method('delete') -->
     @csrf
     <!-- nameプロバティとvalueプロパティがポイント -->
     <button type="button" class="buy-confirm btn btn-success" name="id" value="{{ $image->id }}" data-toggle="modal" data-target="#confirm-buy" style="width: 18rem; float: left; margin: 16px;">
+    <input type="hidden" name="user_id" value="{{ $image->user_id }}">
+    <!-- 所有権をログインユーザー(買い手)に変更するために、 buyer_idに値をもたせる-->
+    <input type="hidden" name="buyer_id" value="{{ Auth::user()->id }}">
+    <!-- <input type="hidden" name="file_name" value="{{ $image->file_name }}">
+    <input type="hidden" name="file_path" value="{{ $image->file_path }}"> -->
         <img src="{{ Storage::url($image->file_path) }}" style="width: 100%;"/>
         <p>{{ $image->file_name }}</p>
     </button>

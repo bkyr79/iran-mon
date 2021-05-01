@@ -13,6 +13,49 @@
 @foreach($images as $image)
 <div  type="button" class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; float: left; margin: 16px;">
   <img src="{{ Storage::url($image->file_path) }}" style="width: 100%;"/>
-  <p>{{ $image->file_name }}</p>
+  <!-- <form action="#" method="post"> -->
+  <p class="file_name">{{ $image->file_name }}</p>
+    <!-- <p>{{ $image->file_name }}</p> -->
+  <!-- </form> -->
 </div>
 @endforeach
+
+<script>
+jQuery(function($){
+    $('.file_name').click(function(){
+        //classでonを持っているかチェック
+        if(!$(this).hasClass('on')){
+            //編集可能時はclassでonをつける
+            $(this).addClass('on');
+            var txt = $(this).text();
+            //テキストをinputのvalueに入れてで置き換え
+            $(this).html('<input type="text" value="'+txt+'" />');
+            //同時にinputにフォーカスをする
+            $('.file_name > input').focus().blur(function(){
+                var inputVal = $(this).val();
+                //もし空欄だったら空欄にする前の内容に戻す
+                if(inputVal===''){
+                    inputVal = this.defaultValue;
+                };
+                //編集が終わったらtextで置き換える
+                $(this).parent().removeClass('on').text(inputVal);
+            });
+        };
+    });
+});
+</script>
+
+
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<!-- <script>
+  // 商品名変更のため
+  // ループ内の要素をすべて書き換える場合 → [参考]https://web-dragon.com/coding/js-for/
+  var greet = document.getElementsByClassName("file_name")
+  for(var i = 0; i < greet.length; i++){
+    greet[i].innerHTML = "<p>すべて変更しちゃいます〜</p>"
+  }
+</script> -->

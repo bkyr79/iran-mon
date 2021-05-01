@@ -10,6 +10,7 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
+use Illuminate\Database\Eloquent\Model; 
 
 class ShopController extends Controller
 {
@@ -17,24 +18,23 @@ class ShopController extends Controller
         // $shop_idは、shoplist画面で選択されたショップオーナーのid。
         $shop_id = $request->owner_id; 
         $uploads = Item::orderBy("id", "desc")->where('user_id', '=', $shop_id)->get();
-        
+
         return view("shop", [
             "images" => $uploads,
-            "owner_name" => $request->owner_name
+            "owner_name" => $request->owner_name,
         ]);
     }
 
-    public function delete(Request $request)
-    {
-        $deleteItem = Item::find($request->id);
+    public function edit(Request $request) {  
+        $post = Item::find(1);
+        if(is_null($_POST)) {
+            return redirect('/list');
+        }
 
-        // file_pathはItemテーブルのカラム名
-        $deletepath = $deleteItem->file_path;
+        $post = Item::find($request->id);
 
-        // データベースのfile_path名は確認していたほうが確実(× 'public/uploads'. )
-        Storage::delete('public/' . $deletepath);
-        $deleteItem->delete();
-        return redirect('/shop'); 
+        $post->user_id = $request->buyer_id;
+        $post->save();
+        return redirect('/list');
     }
-
 }
