@@ -1,3 +1,9 @@
+<style type="text/css">
+.submit_visible {visibility: visible;}
+/* .submit_visible {visibility: hidden;} */
+/* .submit_visible {background-color: #00ffff;font-weight: bold;} */
+</style>
+
 <!-- Bootstrap導入 -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <!-- Bootstrap Javascript(jQuery含む) -->
@@ -11,18 +17,21 @@
 <hr />
 
 @foreach($images as $image)
-<div  type="button" class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; float: left; margin: 16px;">
-  <img src="{{ Storage::url($image->file_path) }}" style="width: 100%;"/>
-  <!-- <form action="#" method="post"> -->
-  <p class="file_name">{{ $image->file_name }}</p>
-    <!-- <p>{{ $image->file_name }}</p> -->
-  <!-- </form> -->
+<div type="button" class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; float: left; margin: 16px; height: 290px;">
+  <form action="/list" name="sampleform" method="post">
+  @csrf
+  <button type="submit" style="width: 100%; display: inline-block;">
+    <img src="{{ Storage::url($image->file_path) }}" style="width: 100%; height: 246px;"/>
+  </button>
+  <input type="text" class="goods_name" name="goods_name" value="{{ $image->name }}" style="display:block; margin:auto; text-align:center; border:#28a745; background-color:#28a745; font-weight:bold;">
+  <input type="hidden" name="id" value="{{ $image->id }}">
+  </form>
 </div>
 @endforeach
 
 <script>
 jQuery(function($){
-    $('.file_name').click(function(){
+    $('.goods_name').click(function(){
         //classでonを持っているかチェック
         if(!$(this).hasClass('on')){
             //編集可能時はclassでonをつける
@@ -31,23 +40,20 @@ jQuery(function($){
             //テキストをinputのvalueに入れてで置き換え
             $(this).html('<input type="text" value="'+txt+'" />');
             //同時にinputにフォーカスをする
-            $('.file_name > input').focus().blur(function(){
+            $('.goods_name > input').focus().blur(function(){
                 var inputVal = $(this).val();
                 //もし空欄だったら空欄にする前の内容に戻す
                 if(inputVal===''){
                     inputVal = this.defaultValue;
                 };
                 //編集が終わったらtextで置き換える
-                $(this).parent().removeClass('on').text(inputVal);
+                $(this).parent().removeClass('on').text(inputVal);                
             });
         };
+
     });
 });
 </script>
-
-
-
-
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
