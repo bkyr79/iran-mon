@@ -15,6 +15,8 @@ class ItemController extends Controller
 
     function upload(Request $request){
 			$request->validate([
+        'goods_name' => ['required', 'string'],
+        'goods_price' => ['required', 'integer', 'min:1', 'max:1000'],
 				'file_path' => 'required|file|image|mimes:png,jpeg',
 				// 'file_name' => ['file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2000']
 				'file_name' => ['file', 'image', 'mimes:jpeg,png,jpg,gif']
