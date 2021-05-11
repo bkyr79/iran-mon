@@ -17,7 +17,7 @@
 
 @foreach($images as $image)
 <div type="button" class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; float: left; margin: 16px; height: 290px;">
-  <form action="/itemlist" name="sampleform" method="post">
+  <form action="/itemlist" name="sampleform" method="post" onsubmit="return func1()">
   @csrf
   <button type="submit" style="width: 100%; display: inline-block;">
     <img src="{{ Storage::url($image->file_path) }}" style="width: 100%; height: 246px;"/>
