@@ -30,3 +30,5 @@ Route::post('/shop',
 Route::post('/list', 'ShopController@edit');
 
 Route::get('/shoplist', 'ShopListController@index');
+
+Route::post('/itemlist', 'ItemListController@edit');
