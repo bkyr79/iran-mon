@@ -13,12 +13,11 @@
 
 <!-- ユーザー名を表示 -->
 <p>{{ Auth::user()->name }}さんのマイページ</p>
-<a href="{{ route('upload_form') }}">Upload</a>
-<hr />
+<p><a href="{{ route('upload_form') }}">Upload</a></p>
 
 @foreach($images as $image)
 <div type="button" class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; float: left; margin: 16px; height: 290px;">
-  <form action="/list" name="sampleform" method="post">
+  <form action="/itemlist" name="sampleform" method="post">
   @csrf
   <button type="submit" style="width: 100%; display: inline-block;">
     <img src="{{ Storage::url($image->file_path) }}" style="width: 100%; height: 246px;"/>

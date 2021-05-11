@@ -85,10 +85,3 @@ class ItemController extends Controller
 			return redirect("/list");			
 		}
 }
-
-		// protected function validator(array $data)
-		// {
-		// 		return Validator::make($data, [
-		// 				'file_name' => ['file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2000'], 
-		// 		]);
-		// }
