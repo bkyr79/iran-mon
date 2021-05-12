@@ -14,6 +14,7 @@
 <!-- ユーザー名を表示 -->
 <p>{{ Auth::user()->name }}さんのマイページ</p>
 <p><a href="{{ route('upload_form') }}">Upload</a></p>
+<p><a href="{{ route('delete_list') }}">Delete</a></p>
 
 @foreach($images as $image)
 <div type="button" class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; float: left; margin: 16px; height: 290px;">

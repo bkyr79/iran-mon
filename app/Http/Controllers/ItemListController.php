@@ -17,7 +17,7 @@ class ItemListController extends Controller
         $uploads = Item::orderBy("id", "desc")->where('user_id', '=', Auth::id())->get();
 
         return view("item_list", [
-            "images" => $uploads
+            "images" => $uploads,
         ]);
     }
 
@@ -34,4 +34,17 @@ class ItemListController extends Controller
         $post->save();
         return redirect('/list');
     }   
+
+    public function delete(Request $request){
+        Item::destroy($request->del_check);
+        return redirect('/list');
+    }
+
+    function deleteList(){
+        $uploads = Item::orderBy("id", "desc")->where('user_id', '=', Auth::id())->get();
+
+        return view("delete_list", [
+            "images" => $uploads,
+        ]);
+    }
 }

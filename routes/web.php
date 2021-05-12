@@ -32,3 +32,7 @@ Route::post('/list', 'ShopController@edit');
 Route::get('/shoplist', 'ShopListController@index');
 
 Route::post('/itemlist', 'ItemListController@edit');
+
+Route::get('/delete_list', 'ItemListController@deleteList')->name('delete_list');
+
+Route::post('/delete', 'ItemListController@delete');
