@@ -35,16 +35,13 @@ class ItemListController extends Controller
         return redirect('/list');
     }   
 
-    public function delete(Request $request){
-        Item::destroy($request->del_check);
-        return redirect('/list');
+    function deleteList(){
+        $images = Item::orderBy("id", "desc")->where('user_id', '=', Auth::id())->get();
+        return view("delete_list", ['images' => $images]);
     }
 
-    function deleteList(){
-        $uploads = Item::orderBy("id", "desc")->where('user_id', '=', Auth::id())->get();
-
-        return view("delete_list", [
-            "images" => $uploads,
-        ]);
+    public function delete(Request $request){
+        Item::destroy($request->del_checks);
+        return redirect('/list');
     }
 }
