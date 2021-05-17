@@ -12,6 +12,7 @@
         "barryvdh/laravel-debugbar": "^3.5",
         "fideloper/proxy": "^4.4",
         "intervention/image": "^2.5",
+        "laravel/cashier": "^12.13",
         "laravel/framework": "^6.20",
         "laravel/tinker": "^2.5",
         "laravelcollective/html": "^6.0"

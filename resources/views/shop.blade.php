@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
 <!-- Bootstrap導入 -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <!-- Bootstrap Javascript(jQuery含む) -->
@@ -22,7 +32,7 @@
     <!-- 所有権をログインユーザー(買い手)に変更するために、 buyer_idに値をもたせる-->
     <input type="hidden" name="buyer_id" value="{{ Auth::user()->id }}">
         <img src="{{ Storage::url($image->file_path) }}" style="width: 100%; height: 246px;"/>
-        <p>{{ $image->name }}</p>
+        <p><span>{{ $image->name }}　</span><span>¥{{ $image->price }}</span></p>
     </button>
 @endforeach
 
@@ -43,7 +53,20 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">いいえ</button>
                 <!-- 商品imageと同じidを持たせることで、同じvalueを持たせることになる -->
-                <button type="submit" class="btn btn-success" id="buybtn" name="id">はい</button>
+                <form action="{{ asset('charge') }}" method="POST">
+                    {{ csrf_field() }}
+                            <script
+                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                    data-key="{{ env('STRIPE_KEY') }}"
+                                    data-amount="1000"
+                                    data-name="Stripe Demo"
+                                    data-label="はい"
+                                    data-description="Online course about integrating Stripe"
+                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                    data-locale="auto"
+                                    data-currency="JPY">
+                            </script>
+                </form>
 </form>
             </div>
         </div>
@@ -57,3 +80,6 @@
     });
 </script>
 
+    
+</body>
+</html>
