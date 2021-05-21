@@ -21,23 +21,24 @@
 <p>{{ $owner_name }}さんのショップ</p>
 <hr />
 
+
 @foreach($images as $image)
 <!-- </form>はmodalのsubmitの下に記載してある -->
-<form action="/list" method="post">
     <!-- @method('delete') -->
     @csrf
     <!-- nameプロバティとvalueプロパティがポイント -->
-    <button type="button" class="buy-confirm btn btn-success" name="id" value="{{ $image->id }}" data-toggle="modal" data-target="#confirm-buy" style="width: 18rem; float: left; margin: 16px; height: 290px;">
-    <input type="hidden" name="user_id" value="{{ $image->user_id }}">
-    <!-- 所有権をログインユーザー(買い手)に変更するために、 buyer_idに値をもたせる-->
-    <input type="hidden" name="buyer_id" value="{{ Auth::user()->id }}">
+    <button type="button" class="buy-confirm btn btn-success" name="id[]" value="{{ $image->id }}" data-toggle="modal" data-target="#confirm-buy" style="width: 18rem; float: left; margin: 16px; height: 290px;">
         <img src="{{ Storage::url($image->file_path) }}" style="width: 100%; height: 246px;"/>
         <p><span>{{ $image->name }}　</span><span>¥{{ $image->price }}</span></p>
     </button>
+
 @endforeach
 
 <!-- Modal -->
+
 @foreach($images as $image)
+
+{{ $image->id }}
 <div class="modal fade" id="confirm-buy" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -53,25 +54,26 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">いいえ</button>
                 <!-- 商品imageと同じidを持たせることで、同じvalueを持たせることになる -->
-                <form action="{{ asset('charge') }}" method="POST">
-                    {{ csrf_field() }}
-                            <script
-                                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                    data-key="{{ env('STRIPE_KEY') }}"
-                                    data-amount="1000"
-                                    data-name="Stripe Demo"
-                                    data-label="はい"
-                                    data-description="Online course about integrating Stripe"
-                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                                    data-locale="auto"
-                                    data-currency="JPY">
-                            </script>
+
+                <form action="/list" method="post">
+                @csrf
+                <input type="submit" class="btn btn-success" id="buybtn" name="id[]" value="{{ $image->id }}">はい
+                <input type="hidden" name="shop_id" value="{{ $owner_id }}">
+                <input type="hidden" name="image[]" value="{{ $image }}">
+                <input type="hidden" name="id[]" value="{{ $image->id }}">
+                <!-- 所有権をログインユーザー(買い手)に変更するために、 buyer_idに値をもたせる-->
+                <input type="hidden" name="buyer_id" value="{{ Auth::user()->id }}">
                 </form>
-</form>
+
+                <!-- とりあえず、stripe無しでuser_id更新できるようにしよう -->
+                <script>
+                    // document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+                </script>
             </div>
         </div>
     </div>
 </div>
+
 @endforeach
 
 <script>
@@ -80,6 +82,5 @@
     });
 </script>
 
-    
 </body>
 </html>

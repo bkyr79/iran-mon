@@ -26,7 +26,7 @@ class ChargeController extends Controller
                 'currency' => 'jpy'
             ));
 
-			return redirect("/shoplist");
+			return redirect("/list");
         } catch (\Exception $ex) {
             return $ex->getMessage();
         }

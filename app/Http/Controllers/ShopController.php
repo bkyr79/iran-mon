@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Storage;
 use App\Post;
 use Illuminate\Database\Eloquent\Model; 
 
+use Stripe\Stripe;
+use Stripe\Customer;
+use Stripe\Charge;
+
 class ShopController extends Controller
 {
     public function show(Request $request){
@@ -22,19 +26,43 @@ class ShopController extends Controller
         return view("shop", [
             "images" => $uploads,
             "owner_name" => $request->owner_name,
+            "owner_id" => $request->owner_id,
         ]);
     }
 
     public function edit(Request $request) {  
-        $post = Item::find(1);
-        if(is_null($_POST)) {
-            return redirect('/list');
-        }
+        // $post = Item::find(1);
+        // if(is_null($_POST)) {
+        //     return redirect('/list');
+        // }
 
-        $post = Item::find($request->id);
+        // user_idのうちの一番古いidがupdateされていることになる
+        // $item = Item::find($request->id);
 
-        $post->user_id = $request->buyer_id;
-        $post->save();
+        // $item->user_id = $request->buyer_id;
+        // $item->save();
+        $item = new Item;
+        $item->where('id', $request->id)->update(['user_id' => $request->buyer_id]);
+
+        // try {
+        //     Stripe::setApiKey(env('STRIPE_SECRET'));
+
+        //     $customer = Customer::create(array(
+        //         'email' => $request->stripeEmail,
+        //         'source' => $request->stripeToken
+        //     ));
+
+        //     $charge = Charge::create(array(
+        //         'customer' => $customer->id,
+        //         'amount' => 1000,
+        //         'currency' => 'jpy'
+        //     ));
+
+		// 	// return redirect("/list");
+        // } catch (\Exception $ex) {
+        //     return $ex->getMessage();
+        // }
+
         return redirect('/list');
     }
 }
