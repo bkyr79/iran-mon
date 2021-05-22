@@ -31,4 +31,9 @@ class ChargeController extends Controller
             return $ex->getMessage();
         }
     }
+
+    public function show()
+    {
+        return view("charge");
+    }
 }
