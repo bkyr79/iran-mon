@@ -51,7 +51,7 @@
                 <!-- 商品imageと同じidを持たせることで、同じvalueを持たせることになる -->
                 <form action="/list" method="post">
                 @csrf
-                <button type="submit" class="btn btn-success" id="buybtn" name="id[]">はい</button>
+                <button type="submit" class="btn btn-success" id="buybtn" name="id[]" style="margin-top: 16px;">はい</button>
                 <input type="hidden" name="shop_id" value="{{ $owner_id }}">
                 <input type="hidden" name="id[]" value="{{ $image->id }}">
                 <!-- 所有権をログインユーザー(買い手)に変更するために、 buyer_idに値をもたせる-->
