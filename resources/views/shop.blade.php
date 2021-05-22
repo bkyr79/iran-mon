@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+</span><!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -21,17 +21,12 @@
 <p>{{ $owner_name }}さんのショップ</p>
 <hr />
 
-
 @foreach($images as $image)
-<!-- </form>はmodalのsubmitの下に記載してある -->
-    <!-- @method('delete') -->
-    @csrf
     <!-- nameプロバティとvalueプロパティがポイント -->
     <button type="button" class="buy-confirm btn btn-success" name="id[]" value="{{ $image->id }}" data-toggle="modal" data-target="#confirm-buy" style="width: 18rem; float: left; margin: 16px; height: 290px;">
         <img src="{{ Storage::url($image->file_path) }}" style="width: 100%; height: 246px;"/>
         <p><span>{{ $image->name }}　</span><span>¥{{ $image->price }}</span></p>
     </button>
-
 @endforeach
 
 <!-- Modal -->
@@ -54,12 +49,10 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">いいえ</button>
                 <!-- 商品imageと同じidを持たせることで、同じvalueを持たせることになる -->
-
                 <form action="/list" method="post">
                 @csrf
-                <input type="submit" class="btn btn-success" id="buybtn" name="id[]" value="{{ $image->id }}">はい
+                <button type="submit" class="btn btn-success" id="buybtn" name="id[]">はい</button>
                 <input type="hidden" name="shop_id" value="{{ $owner_id }}">
-                <input type="hidden" name="image[]" value="{{ $image }}">
                 <input type="hidden" name="id[]" value="{{ $image->id }}">
                 <!-- 所有権をログインユーザー(買い手)に変更するために、 buyer_idに値をもたせる-->
                 <input type="hidden" name="buyer_id" value="{{ Auth::user()->id }}">
@@ -73,7 +66,6 @@
         </div>
     </div>
 </div>
-
 @endforeach
 
 <script>
