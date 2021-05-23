@@ -49,14 +49,19 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">いいえ</button>
                 <!-- 商品imageと同じidを持たせることで、同じvalueを持たせることになる -->
-                <form action="/list" method="post">
+                <form action="/list" method="post" id="parent">
                 @csrf
                 <button type="submit" class="btn btn-success" id="buybtn" name="id[]" style="margin-top: 16px;">はい</button>
                 <input type="hidden" name="shop_id" value="{{ $owner_id }}">
                 <input type="hidden" name="id[]" value="{{ $image->id }}">
                 <!-- 所有権をログインユーザー(買い手)に変更するために、 buyer_idに値をもたせる-->
                 <input type="hidden" name="buyer_id" value="{{ Auth::user()->id }}">
+                <input type="hidden" name="price" value="{{ $image->price }}">
                 </form>
+
+                <!-- <form action="/charge" method="post">
+
+                </form> -->
             </div>
         </div>
     </div>

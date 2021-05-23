@@ -14,7 +14,7 @@
     <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="{{ env('STRIPE_KEY') }}"
-      data-amount="1000"
+      data-amount="{{ $goods_price }}"
       data-name="Stripe Demo"
       data-label="はい"
       data-description="Online course about integrating Stripe"

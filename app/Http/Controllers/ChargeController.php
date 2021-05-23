@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Stripe\Customer;
 use Stripe\Charge;
+use App\Item;
 
 class ChargeController extends Controller
 {
@@ -22,7 +23,8 @@ class ChargeController extends Controller
 
             $charge = Charge::create(array(
                 'customer' => $customer->id,
-                'amount' => 1000,
+                // ↓選択した商品価格に変更したい
+                'amount' => $goods_price,
                 'currency' => 'jpy'
             ));
 
