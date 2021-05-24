@@ -14,6 +14,8 @@ class ChargeController extends Controller
     public function charge(Request $request)
     {
         try {
+            $goods_price = $request->input('price');
+
             Stripe::setApiKey(env('STRIPE_SECRET'));
 
             $customer = Customer::create(array(

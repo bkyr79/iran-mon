@@ -29,7 +29,7 @@ class ShopController extends Controller
         $item = new Item;
         $item->where('id', $request->id)->update(['user_id' => $request->buyer_id]);
 
-        $goods_price = $request->input('price');
+        $goods_price = $request->goods_price;
 
         // return redirect('/charge');
         return view("charge", [
