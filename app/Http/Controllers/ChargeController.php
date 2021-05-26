@@ -14,7 +14,7 @@ class ChargeController extends Controller
     public function charge(Request $request)
     {
         try {
-            $goods_price = $request->input('price');
+            $goods_price = $request->price;
 
             Stripe::setApiKey(env('STRIPE_SECRET'));
 
@@ -34,10 +34,5 @@ class ChargeController extends Controller
         } catch (\Exception $ex) {
             return $ex->getMessage();
         }
-    }
-
-    public function show()
-    {
-        return view("charge");
     }
 }

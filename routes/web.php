@@ -37,7 +37,5 @@ Route::get('/delete_list', 'ItemListController@deleteList')->name('delete_list')
 
 Route::post('/delete', 'ItemListController@delete');
 
-Route::get('/charge', 'ChargeController@show');
-
 Route::post('/charge', 'ChargeController@charge');
 

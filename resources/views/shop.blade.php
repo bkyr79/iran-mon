@@ -1,4 +1,4 @@
-</span><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -51,21 +51,12 @@
                 <!-- 商品imageと同じidを持たせることで、同じvalueを持たせることになる -->
                 <form action="/list" method="post" onsubmit="checkText()">
                 @csrf
-                <button type="submit" class="btn btn-success" id="buybtn" name="id[]" style="margin-top: 16px;">はい</button>
+                <button type="submit" class="btn btn-success" id="buybtn" name="id[]">はい</button>
                 <input type="hidden" name="shop_id" value="{{ $owner_id }}">
                 <input type="hidden" name="id[]" value="{{ $image->id }}">
                 <!-- 所有権をログインユーザー(買い手)に変更するために、 buyer_idに値をもたせる-->
                 <input type="hidden" name="buyer_id" value="{{ Auth::user()->id }}">
-                <!-- <input type="hidden" name="price[]" value="{{ $image->price }}"> -->
                 </form>
-
-                <form action="/charge" method="post">
-                <button type="submit" name="price[]" value="{{ $image->price }}" id="test" style="display:none;">
-                </form>
-
-                <!-- <form action="/charge" method="post">
-
-                </form> -->
             </div>
         </div>
     </div>
@@ -77,10 +68,6 @@
     $('.buy-confirm').click(function(){
         $('#buybtn').val( $(this).val() );
     });
-
-    function checkText() {
-        document.getElementById('test').click();
-    }
 </script>
 
 </body>

@@ -29,11 +29,24 @@ class ShopController extends Controller
         $item = new Item;
         $item->where('id', $request->id)->update(['user_id' => $request->buyer_id]);
 
-        $goods_price = $request->goods_price;
+        // 選択した商品idからpriceを検索する。$price_dbはjson形式
+        $goods_price_json = $item->where('id', '=', $request->id)->select('price')->get();
 
-        // return redirect('/charge');
-        return view("charge", [
-            "goods_price" => $goods_price
-        ]);
+        // json形式から連想配列に変換する
+        $goods_price_json_dec = json_decode($goods_price_json, true);
+
+        // viewで使用できるようにキーを特定しておく
+        $goods_price = $goods_price_json_dec[0]['price'];
+        
+        // echo "<pre>";
+        // // var_dump(array_column($goods_price, 'price'));
+        // var_dump($price_db_deco[0]['price']);
+        // echo "</pre>";
+        // exit;
+
+            return view("charge", [
+                "goods_price" => $goods_price
+            ]);
+
     }
 }
