@@ -14,7 +14,13 @@ class ChargeController extends Controller
     public function charge(Request $request)
     {
         try {
-            $goods_price = $request->price;
+            // $item = new Item;
+            // $item->where('id', $request->id)->update(['user_id' => $request->buyer_id]);
+            // $goods_price_json = $item->where('id', '=', $request->id)->select('price')->get();
+            // $goods_price_json_dec = json_decode($goods_price_json, true);
+            // $goods_price = $goods_price_json_dec[0]['price'];
+
+            $goods_price = $request->session()->get('goods_price');
 
             Stripe::setApiKey(env('STRIPE_SECRET'));
 

@@ -38,6 +38,8 @@ class ShopController extends Controller
         // viewで使用できるようにキーを特定しておく
         $goods_price = $goods_price_json_dec[0]['price'];
         
+        // $goods_priceをセッションに保存
+        $request->session()->put('goods_price', $goods_price);
         // echo "<pre>";
         // // var_dump(array_column($goods_price, 'price'));
         // var_dump($price_db_deco[0]['price']);
