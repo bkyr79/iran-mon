@@ -32,8 +32,6 @@
 <!-- Modal -->
 
 @foreach($images as $image)
-
-{{ $image->id }}
 <div class="modal fade" id="confirm-buy" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -49,7 +47,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">いいえ</button>
                 <!-- 商品imageと同じidを持たせることで、同じvalueを持たせることになる -->
-                <form action="/list" method="post" onsubmit="checkText()">
+                <form action="/list" method="post">
                 @csrf
                 <button type="submit" class="btn btn-success" id="buybtn" name="id[]">はい</button>
                 <input type="hidden" name="shop_id" value="{{ $owner_id }}">
