@@ -11,16 +11,17 @@ use App\Item;
 class ChargeController extends Controller
 {
     /*単発決済用のコード*/
+    // chargeAndChangeOwnership
     public function charge(Request $request)
     {
         try {
-            // $item = new Item;
-            // $item->where('id', $request->id)->update(['user_id' => $request->buyer_id]);
-            // $goods_price_json = $item->where('id', '=', $request->id)->select('price')->get();
-            // $goods_price_json_dec = json_decode($goods_price_json, true);
-            // $goods_price = $goods_price_json_dec[0]['price'];
-
+            $id_of_item_to_buy = $request->session()->get('id_of_item_to_buy');
             $goods_price = $request->session()->get('goods_price');
+            $buyer_id = $request->session()->get('buyer_id');
+
+            // user_idを更新する 
+            $item = new Item;
+            $item->where('id', $id_of_item_to_buy)->update(['user_id' => $buyer_id]);
 
             Stripe::setApiKey(env('STRIPE_SECRET'));
 
@@ -31,7 +32,6 @@ class ChargeController extends Controller
 
             $charge = Charge::create(array(
                 'customer' => $customer->id,
-                // ↓選択した商品価格に変更したい
                 'amount' => $goods_price,
                 'currency' => 'jpy'
             ));

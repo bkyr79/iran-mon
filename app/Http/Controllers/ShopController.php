@@ -25,9 +25,10 @@ class ShopController extends Controller
         ]);
     }
 
+    // formから値を受け取りセッション保存。receiveInfoGoodsToBuy
     public function edit(Request $request) {  
+
         $item = new Item;
-        $item->where('id', $request->id)->update(['user_id' => $request->buyer_id]);
 
         // 選択した商品idからpriceを検索する。$price_dbはjson形式
         $goods_price_json = $item->where('id', '=', $request->id)->select('price')->get();
@@ -38,13 +39,16 @@ class ShopController extends Controller
         // viewで使用できるようにキーを特定しておく
         $goods_price = $goods_price_json_dec[0]['price'];
         
+        // クリックした商品のid
+        $id_of_item_to_buy = $request->id;
+
+        $buyer_id = $request->buyer_id;
+
+        // $id_of_item_to_buyと$buyer_idをセッションに保存(決済処理のタイミングで必要なため)
+        $request->session()->put('id_of_item_to_buy', $id_of_item_to_buy);
+        $request->session()->put('buyer_id', $buyer_id);
         // $goods_priceをセッションに保存
         $request->session()->put('goods_price', $goods_price);
-        // echo "<pre>";
-        // // var_dump(array_column($goods_price, 'price'));
-        // var_dump($price_db_deco[0]['price']);
-        // echo "</pre>";
-        // exit;
 
             return view("charge", [
                 "goods_price" => $goods_price
