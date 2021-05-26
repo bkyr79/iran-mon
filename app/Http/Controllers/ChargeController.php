@@ -11,8 +11,7 @@ use App\Item;
 class ChargeController extends Controller
 {
     /*単発決済用のコード*/
-    // chargeAndChangeOwnership
-    public function charge(Request $request)
+    public function chargeAndChangeOwnership(Request $request)
     {
         try {
             $id_of_item_to_buy = $request->session()->get('id_of_item_to_buy');

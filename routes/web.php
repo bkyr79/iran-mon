@@ -27,7 +27,7 @@ Route::post('/shop',
     [App\Http\Controllers\ShopController::class, "show"]
     )->name("item_list");
 
-Route::post('/list', 'ShopController@edit');
+Route::post('/list', 'ShopController@receiveInfoGoodsToBuy');
 
 Route::get('/shoplist', 'ShopListController@index');
 
@@ -37,5 +37,5 @@ Route::get('/delete_list', 'ItemListController@deleteList')->name('delete_list')
 
 Route::post('/delete', 'ItemListController@delete');
 
-Route::post('/charge', 'ChargeController@charge');
+Route::post('/charge', 'ChargeController@chargeAndChangeOwnership');
 

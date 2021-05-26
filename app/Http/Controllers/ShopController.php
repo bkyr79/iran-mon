@@ -25,8 +25,8 @@ class ShopController extends Controller
         ]);
     }
 
-    // formから値を受け取りセッション保存。receiveInfoGoodsToBuy
-    public function edit(Request $request) {  
+    // formから値を受け取りセッション保存。
+    public function receiveInfoGoodsToBuy(Request $request) {  
 
         $item = new Item;
 
