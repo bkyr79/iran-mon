@@ -16,7 +16,7 @@ class ShopController extends Controller
     public function show(Request $request){
         // $shop_idは、shoplist画面で選択されたショップオーナーのid。
         $shop_id = $request->owner_id; 
-        $uploads = Item::orderBy("id", "desc")->where('user_id', '=', $shop_id)->get();
+        $uploads = Item::orderBy("id", "desc")->where('user_id', '=', $shop_id)->paginate(12);
 
         return view("shop", [
             "images" => $uploads,
