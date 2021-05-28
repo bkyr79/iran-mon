@@ -21,16 +21,18 @@
 <p>{{ $owner_name }}さんのショップ</p>
 <hr />
 
+<div style="text-align:center;">
 @foreach($images as $image)
     <!-- nameプロバティとvalueプロパティがポイント -->
-    <button type="button" class="buy-confirm btn btn-success" name="id[]" value="{{ $image->id }}" data-toggle="modal" data-target="#confirm-buy" style="width: 18rem; float: left; margin: 16px; height: 290px;">
+    <button type="button" class="buy-confirm btn btn-success" name="id[]" value="{{ $image->id }}" data-toggle="modal" data-target="#confirm-buy" style="width: 18rem; margin: 16px; height: 290px;">
         <img src="{{ Storage::url($image->file_path) }}" style="width: 100%; height: 246px;"/>
         <p><span>{{ $image->name }}　</span><span>¥{{ $image->price }}</span></p>
     </button>
 @endforeach
+</div>
+<div style="text-align:center;">{{ $images->links() }}</div>
 
 <!-- Modal -->
-
 @foreach($images as $image)
 <div class="modal fade" id="confirm-buy" tabindex="-1" role="dialog">
     <div class="modal-dialog">

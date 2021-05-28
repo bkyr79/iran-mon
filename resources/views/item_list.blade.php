@@ -16,8 +16,9 @@
 <p><a href="{{ route('upload_form') }}">Upload</a></p>
 <p><a href="{{ route('delete_list') }}">Delete</a></p>
 
+<div style="text-align:center;">
 @foreach($images as $image)
-<div type="button" class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; float: left; margin: 16px; height: 290px;">
+<div type="button" class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; margin: 16px; height: 290px;">
   <form action="/itemlist" name="sampleform" method="post" onsubmit="return func1()">
   @csrf
   <button type="submit" style="width: 100%; display: inline-block; padding: 0px; border: 0px;">
@@ -28,6 +29,8 @@
   </form>
 </div>
 @endforeach
+</div>
+<div style="float:left;">{{ $images->links() }}</div>
 
 <script>
 jQuery(function($){

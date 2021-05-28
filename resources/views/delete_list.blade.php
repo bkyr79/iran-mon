@@ -7,8 +7,9 @@
 <!-- ↓formタグはループの外に記述する -->
 <form action="/delete" id="delete_form" method="post">
 
+<div style="text-align:center;">
 @foreach($images as $image)
-<div class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; float: left; margin: 16px; height: 290px;">
+<div class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; margin: 16px; height: 290px;">
   @csrf
   <input type="checkbox" name="del_checks[]" value="{{ $image->id }}">
   <button style="width: 100%; display: inline-block;">
@@ -17,5 +18,6 @@
   <p class="goods_name" style="display:block; margin:auto; text-align:center; border:#28a745; background-color:#28a745; font-weight:bold;"><span style="color:black;">{{ $image->name }}</span></p>
 </div>
 @endforeach
+</div>
 
 </form>
