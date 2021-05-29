@@ -17,9 +17,12 @@
 
 <!-- ユーザー名を表示 -->
 <!-- これは間違え。改善要 → ×ログイン中のユーザー ○他ショップのオーナー（=他ユーザー） -->
-<p>{{ Auth::user()->name }}さんがログイン中</p>
-<p>{{ $owner_name }}さんのショップ</p>
-<hr />
+<div style="height: 150px;">
+    <div style="text-align:right; padding-top:5px; padding-right:9px; color:gray;">{{ Auth::user()->name }}さんがログイン中</div>
+    <div>ショップ一覧へ戻る</div>
+    <div style="text-align:center; margin-top:50px; margin-bottom:0px; display:inleine-block; font-size:19px;">{{ $owner_name }}さんのショップ</div>
+</div>
+<hr style="margin-top:0px;"/>
 
 <div style="text-align:center;">
 @foreach($images as $image)

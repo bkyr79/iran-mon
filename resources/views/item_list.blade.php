@@ -2,6 +2,58 @@
 .submit_visible {visibility: visible;}
 /* .submit_visible {visibility: hidden;} */
 /* .submit_visible {background-color: #00ffff;font-weight: bold;} */
+
+ul.header-dropmenu {
+  list-style: none;
+  width: 100%;
+  height: 40px;
+  margin: 0 auto;
+  padding: 0;
+  display: table;
+  table-layout: fixed;
+}
+ul.header-dropmenu > li {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  border: 1px solid #f8f8f8;
+  background: #f8f8f8; /* 背景色*/
+}
+ul.header-dropmenu li a {
+  display: block;
+  text-align: center;
+  line-height: 40px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+}
+ul.header-dropmenu li ul {
+  visibility: hidden;
+  width: 100%;
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #222; /* マウスオーバー時の枠線 */
+  border-top: none;
+}
+ul.header-dropmenu li:hover ul {
+  visibility: visible;
+}
+ul.header-dropmenu li ul li {
+  background: #fff;
+  transition: all .2s ease;
+}
+ul.header-dropmenu > li:hover {
+  background: #fff;
+  border: 1px solid #222; /* マウスオーバー時の枠線 */
+  border-bottom: none;
+}
+ul.header-dropmenu li:hover ul li:hover {
+  background: #f8f8f8;
+}
 </style>
 
 <!-- Bootstrap導入 -->
@@ -12,9 +64,20 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <!-- ユーザー名を表示 -->
+<div style="text-align:right; padding-top:5px; padding-right:9px; color:gray;">{{ Auth::user()->name }}さんがログイン中</div>
 <p>{{ Auth::user()->name }}さんのマイページ</p>
-<p><a href="{{ route('upload_form') }}">Upload</a></p>
-<p><a href="{{ route('delete_list') }}">Delete</a></p>
+<ul class="header-dropmenu">
+  <li>
+    <a href="#">メニュー</a>
+    <ul>
+      <li><a href="#">ログアウト</a></li>
+      <li><a href="#">ショップ一覧へ</a></li>
+      <li><a href="{{ route('upload_form') }}">Upload</a></li>
+      <li><a href="{{ route('delete_list') }}">Delete</a></li>
+    </ul>
+  </li>
+</ul>
+<hr style="margin-top:0px;"/>
 
 <div style="text-align:center;">
 @foreach($images as $image)

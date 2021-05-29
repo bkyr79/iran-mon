@@ -12,7 +12,7 @@
 <div class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; margin: 16px; height: 290px;">
   @csrf
   <input type="checkbox" name="del_checks[]" value="{{ $image->id }}">
-  <button style="width: 100%; display: inline-block;">
+  <button style="width: 100%; display: inline-block; padding: 0px; border: 0px;">
     <img src="{{ Storage::url($image->file_path) }}" style="width: 100%; height: 246px;"/>
   </button>
   <p class="goods_name" style="display:block; margin:auto; text-align:center; border:#28a745; background-color:#28a745; font-weight:bold;"><span style="color:black;">{{ $image->name }}</span></p>
