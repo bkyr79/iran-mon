@@ -70,13 +70,19 @@ ul.header-dropmenu li:hover ul li:hover {
   <li>
     <a href="#">メニュー</a>
     <ul>
-      <li><a href="#">ログアウト</a></li>
-      <li><a href="#">ショップ一覧へ</a></li>
+      <li><a href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">ログアウト</a></li>
+      <li><a href="{{ url('/shoplist') }}">ショップ一覧へ</a></li>
       <li><a href="{{ route('upload_form') }}">Upload</a></li>
       <li><a href="{{ route('delete_list') }}">Delete</a></li>
     </ul>
   </li>
 </ul>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
+
 <hr style="margin-top:0px;"/>
 
 <div style="text-align:center;">
