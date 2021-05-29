@@ -8,6 +8,8 @@
 </div>
 @endif
 
+<p>{{ Auth::user()->name }}さんのuploadページ</p>
+<p><a href="{{ url('/list') }}">マイページに戻る</a></p>
 <form
   method="post"
   action="{{ route('upload_image') }}"

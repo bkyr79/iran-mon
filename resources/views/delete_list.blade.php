@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 <p>{{ Auth::user()->name }}さんの削除ページ</p>
-<p><a href="{{ route('upload_form') }}">url</a></p>
+<p><a href="{{ url('/list') }}">マイページに戻る</a></p>
 <p><button type="submit" form="delete_form">削除する</button></p>
 
 <!-- ↓formタグはループの外に記述する -->
