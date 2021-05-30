@@ -14,7 +14,7 @@ class ItemListController extends Controller
 {
     function show(){
         //where句で条件指定することで、ログインユーザーの商品のみを表示させる
-        $uploads = Item::orderBy("id", "desc")->where('user_id', '=', Auth::id())->paginate(12);
+        $uploads = Item::orderBy("updated_at", "desc")->where('user_id', '=', Auth::id())->paginate(12);
 
         return view("item_list", [
             "images" => $uploads,
@@ -36,7 +36,7 @@ class ItemListController extends Controller
     }   
 
     function deleteList(){
-        $images = Item::orderBy("id", "desc")->where('user_id', '=', Auth::id())->paginate(12);
+        $images = Item::orderBy("updated_at", "desc")->where('user_id', '=', Auth::id())->paginate(12);
         return view("delete_list", ['images' => $images]);
     }
 

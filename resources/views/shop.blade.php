@@ -99,7 +99,7 @@
 
     <hr style="display:block; margin-top:41px;"/>
 
-<div style="text-align:center;">{{ $images->links() }}</div>
+<div style="text-align:center; margin: 0 600px;">{{ $images->links() }}</div>
 <div style="text-align:center;">
 @foreach($images as $image)
     <!-- nameプロバティとvalueプロパティがポイント -->
@@ -109,7 +109,7 @@
     </button>
 @endforeach
 </div>
-<div style="text-align:center;">{{ $images->links() }}</div>
+<div style="text-align:center; margin: 0 600px;">{{ $images->links() }}</div>
 
 <!-- Modal -->
 @foreach($images as $image)

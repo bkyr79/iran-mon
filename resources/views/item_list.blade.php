@@ -92,14 +92,14 @@ ul.header-dropmenu li:hover ul li:hover {
 
 <hr style="display:block; margin-top:41px;"/>
 
-<div >{{ $images->links() }}</div>
+<div style="margin: 0 600px;">{{ $images->links() }}</div>
 <div style="text-align:center;">
 @foreach($images as $image)
 <div type="button" class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; margin: 16px; height: 290px;">
   <form action="/itemlist" name="sampleform" method="post" onsubmit="return func1()">
   @csrf
   <button type="submit" style="width: 100%; display: inline-block; padding: 0px; border: 0px;">
-    <img src="{{ Storage::url($image->file_path) }}" style="width: 100%; height: 246px;"/>
+    <img src="{{ Storage::url($image->file_path) }}" style="width: 100%; height: 246px; cursor:pointer;"/>
   </button>
   <input type="text" class="goods_name" name="goods_name" value="{{ $image->name }}" style="display:block; margin:auto; text-align:center; border:#28a745; background-color:#28a745; font-weight:bold;">
   <input type="hidden" name="id" value="{{ $image->id }}">
@@ -107,7 +107,7 @@ ul.header-dropmenu li:hover ul li:hover {
 </div>
 @endforeach
 </div>
-<div style="float:left;">{{ $images->links() }}</div>
+<div style="float:left; margin: 0 600px;">{{ $images->links() }}</div>
 
 <script>
 jQuery(function($){

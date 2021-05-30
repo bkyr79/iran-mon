@@ -76,7 +76,7 @@
     <a href="#" class="menu-btn">メニュー</a>
     <ul>
       <li><a href="{{ url('/list') }}">マイページに戻る</a></li>
-      <li><a href="{{ route('delete_list') }}">Delete</a></li>
+      <li><a href="{{ route('upload_form') }}">Upload</a></li>
       <li><a href="{{ route('logout') }}"
         onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">ログアウト</a></li>
@@ -90,23 +90,27 @@
 
 <hr style="display:block; margin-top:41px;"/>
 
-<p><button type="submit" form="delete_form">削除する</button></p>
+<div>
+<div style="text-align:center; margin: 0 600px;">{{ $images->links() }}</div>
+<div><button type="submit" form="delete_form" style="display:relative; top:-20px; margin-left:70px; padding:3px 7px; border-radius :4%;">削除する</button></div>
+</div>
 
 <!-- ↓formタグはループの外に記述する -->
 <form action="/delete" id="delete_form" method="post">
 
 <div style="text-align:center;">
 @foreach($images as $image)
-<div class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; margin: 16px; height: 290px;">
+<div class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; margin: 16px; height: 290px; cursor:default;">
   @csrf
   <input type="checkbox" name="del_checks[]" value="{{ $image->id }}">
-  <button style="width: 100%; display: inline-block; padding: 0px; border: 0px;">
+  <div style="width: 92%; display: inline-block; padding: 0px; border: 0px;">
     <img src="{{ Storage::url($image->file_path) }}" style="width: 100%; height: 246px;"/>
-  </button>
+  </div>
   <p class="goods_name" style="display:block; margin:auto; text-align:center; border:#28a745; background-color:#28a745; font-weight:bold;"><span style="color:black;">{{ $image->name }}</span></p>
 </div>
 @endforeach
 </div>
+<div style="text-align:center; margin: 0 600px;">{{ $images->links() }}</div>
 
 </form>
 
