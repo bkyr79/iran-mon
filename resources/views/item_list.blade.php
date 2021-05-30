@@ -101,7 +101,7 @@ ul.header-dropmenu li:hover ul li:hover {
   <button type="submit" style="width: 100%; display: inline-block; padding: 0px; border: 0px;">
     <img src="{{ Storage::url($image->file_path) }}" style="width: 100%; height: 246px; cursor:pointer;"/>
   </button>
-  <input type="text" class="goods_name" name="goods_name" value="{{ $image->name }}" style="display:block; margin:auto; text-align:center; border:#28a745; background-color:#28a745; font-weight:bold;">
+  <input type="text" class="goods_name" name="goods_name" value="{{ $image->name }}" style="display:block; margin:auto; text-align:center; border:#28a745; background-color:#28a745; font-weight:bold; ">
   <input type="hidden" name="id" value="{{ $image->id }}">
   </form>
 </div>

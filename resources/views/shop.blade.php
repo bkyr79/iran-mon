@@ -62,6 +62,17 @@
     .menu-btn:hover {
     cursor: default;
     }
+    .goods-name {
+        float: left;
+        margin-left: 45px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .goods-price {
+        float: right;
+        margin-right: 20px;
+        padding-top: 3px;
+    }
     </style>
 </head>
 <body>
@@ -105,7 +116,7 @@
     <!-- nameプロバティとvalueプロパティがポイント -->
     <button type="button" class="buy-confirm btn btn-success" name="id[]" value="{{ $image->id }}" data-toggle="modal" data-target="#confirm-buy" style="width: 18rem; margin: 16px; height: 290px;">
         <img src="{{ Storage::url($image->file_path) }}" style="width: 100%; height: 246px;"/>
-        <p><span>{{ $image->name }}　</span><span>¥{{ $image->price }}</span></p>
+        <div><div class="goods-name">{{ $image->name }}　</div><div class="goods-price">¥{{ $image->price }}</div></div>
     </button>
 @endforeach
 </div>

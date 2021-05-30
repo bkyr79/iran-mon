@@ -15,13 +15,29 @@ class ShopController extends Controller
 {
     public function show(Request $request){
         // $shop_idは、shoplist画面で選択されたショップオーナーのid。
-        $shop_id = $request->owner_id; 
-        $uploads = Item::orderBy("id", "desc")->where('user_id', '=', $shop_id)->paginate(12);
+        $request->session()->put('owner_id', $request->owner_id);
+        $request->session()->put('owner_name', $request->owner_name);
+        $shop_id = $request->session()->get('owner_id');
+        $owner_name = $request->session()->get('owner_name');
+        $uploads = Item::orderBy("updated_at", "desc")->where('user_id', '=', $shop_id)->paginate(12);
 
         return view("shop", [
             "images" => $uploads,
-            "owner_name" => $request->owner_name,
-            "owner_id" => $request->owner_id,
+            "owner_name" => $owner_name,
+            "owner_id" => $shop_id,
+        ]);
+    }
+
+    // ペジネーション経由で画面表示する場合
+    public function index(Request $request){
+        $shop_id = $request->session()->get('owner_id');
+        $owner_name = $request->session()->get('owner_name');
+        $uploads = Item::orderBy("updated_at", "desc")->where('user_id', '=', $shop_id)->paginate(12);
+
+        return view("shop", [
+            "images" => $uploads,
+            "owner_name" => $owner_name,
+            "owner_id" => $shop_id,
         ]);
     }
 

@@ -27,6 +27,10 @@ Route::post('/shop',
     [App\Http\Controllers\ShopController::class, "show"]
     )->name("item_list");
 
+Route::get('/shop', 
+    [App\Http\Controllers\ShopController::class, "index"]
+    );
+
 Route::post('/list', 'ShopController@receiveInfoGoodsToBuy');
 
 Route::get('/shoplist', 'ShopListController@index');
