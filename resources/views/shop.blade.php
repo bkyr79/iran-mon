@@ -6,57 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        ul.header-dropmenu {
-        list-style: none;
-        width: 100%;
-        height: 40px;
-        margin: 0 auto;
-        padding: 0;
-        display: table;
-        table-layout: fixed;
-        }
-        ul.header-dropmenu > li {
-        position: relative;
-        display: table-cell;
-        vertical-align: middle;
-        border: 1px solid #f8f8f8;
-        background: #f8f8f8; /* 背景色*/
-        }
-        ul.header-dropmenu li a {
-        display: block;
-        text-align: center;
-        line-height: 40px;
-        font-weight: bold;
-        text-decoration: none;
-        font-size: 14px;
-        }
-        ul.header-dropmenu li ul {
-        visibility: hidden;
-        width: 100%;
-        list-style: none;
-        position: absolute;
-        top: 100%;
-        left: -1px;
-        margin: 0;
-        padding: 0;
-        border: 1px solid #222; /* マウスオーバー時の枠線 */
-        border-top: none;
-        }
-        ul.header-dropmenu li:hover ul {
-        visibility: visible;
-        }
-        ul.header-dropmenu li ul li {
-        background: #fff;
-        transition: all .2s ease;
-        }
-        ul.header-dropmenu > li:hover {
-        background: #fff;
-        border: 1px solid #222; /* マウスオーバー時の枠線 */
-        border-bottom: none;
-        }
-        ul.header-dropmenu li:hover ul li:hover {
-        background: #f8f8f8;
-        }    
+    ul.header-dropmenu {
+    list-style: none;
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    padding: 0;
+    display: block;
+    table-layout: fixed;
+    }
+    ul.header-dropmenu > li {
+    position: relative;
+    /* display: table-cell; */
+    vertical-align: middle;
+    border: 1px solid #f8f8f8;
+    background: #f8f8f8; /* 背景色*/
+    }
+    ul.header-dropmenu li a {
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+    }
+    ul.header-dropmenu li ul {
+    visibility: hidden;
+    width: 100%;
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: -1px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #222; /* マウスオーバー時の枠線 */
+    border-top: none;
+    border-right: none;
+    }
+    ul.header-dropmenu li:hover ul {
+    visibility: visible;
+    }
+    ul.header-dropmenu li ul li {
+    background: #fff;
+    transition: all .2s ease;
+    }
+    ul.header-dropmenu > li:hover {
+    background: #fff;
+    border: 1px solid #222; /* マウスオーバー時の枠線 */
+    border-bottom: none;
+    border-right: none;
+    }
+    ul.header-dropmenu li:hover ul li:hover {
+    background: #f8f8f8;
+    }
+    .menu-btn:hover {
+    cursor: default;
+    }
     </style>
 </head>
 <body>
@@ -70,29 +75,31 @@
 
 <!-- ユーザー名を表示 -->
 <!-- これは間違え。改善要 → ×ログイン中のユーザー ○他ショップのオーナー（=他ユーザー） -->
-<div style="height: 150px;">
     <div style="text-align:right; padding-top:5px; padding-right:9px; color:gray;">{{ Auth::user()->name }}さんがログイン中</div>
     <div style="text-align:center; margin-top:50px; margin-bottom:0px; display:inleine-block; font-size:19px;">{{ $owner_name }}さんのショップ</div>
+    <div style="width:120px; position:absolute; right:0px; ">
     <ul class="header-dropmenu">
-        <li>
-            <a href="#">メニュー</a>
-            <ul>
-            <li><a href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">ログアウト</a></li>
-            <li><a href="{{ url('/list') }}">マイページ</a></li>
-            <li><a href="{{ url('/shoplist') }}">ショップ一覧へ</a></li>
-            <li><a href="{{ route('upload_form') }}">Upload</a></li>
-            <li><a href="{{ route('delete_list') }}">Delete</a></li>
-            </ul>
-        </li>
+    <li style="">
+        <a href="#" class="menu-btn">メニュー</a>
+        <ul>
+        <li><a href="{{ url('/list') }}">マイページ</a></li>
+        <li><a href="{{ url('/shoplist') }}">ショップ一覧へ</a></li>
+        <li><a href="{{ route('upload_form') }}">Upload</a></li>
+        <li><a href="{{ route('delete_list') }}">Delete</a></li>
+        <li><a href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">ログアウト</a></li>
+        </ul>
+    </li>
     </ul>
-<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-    @csrf
-</form>
-</div>
-<hr style="margin-top:0px;"/>
+    </div>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 
+    <hr style="display:block; margin-top:41px;"/>
+
+<div style="text-align:center;">{{ $images->links() }}</div>
 <div style="text-align:center;">
 @foreach($images as $image)
     <!-- nameプロバティとvalueプロパティがポイント -->
