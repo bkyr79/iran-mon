@@ -95,6 +95,16 @@
     top           : 3px;
     left          : 90px;
     }
+    .label-and-regbtn {
+      display    : inline-block;
+      text-align : center;
+      position   : relative;
+      bottom     : 35px;
+    }
+    .pre-image {
+      position : relative;
+      bottom   : 30px;
+    }
     </style>
 
 </head>
@@ -149,9 +159,9 @@
   <div class="file-select"><input type="file" name="file_path" accept="image/png, image/jpeg" onchange="previewImage(this);"></div>
   <div class="name-input"><label for="">商品名：</label><input type="text" name="goods_name"></div>
   <div class="price-input"><label for="">価格：</label><input type="text" name="goods_price"></div>
-  <div style="display:inline-block; text-align:center;"><p style="float:left; position:relative; right:100px; top:64px;">Preview:</p><p><input type="submit" value="登録" class="file-register"></p></div>
+  <div class="label-and-regbtn"><p style="float:left; position:relative; right:100px; top:64px;">Preview:</p><p><input type="submit" value="登録" class="file-register"></p></div>
 </form>
-<div>
+<div class="pre-image">
 <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width: 246px; height: 246px;">
 </div>
 </div>
