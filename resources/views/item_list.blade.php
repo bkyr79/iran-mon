@@ -93,6 +93,9 @@ ul.header-dropmenu li:hover ul li:hover {
 <hr style="display:block; margin-top:41px;"/>
 
 <div style="margin: 0 600px;">{{ $images->links() }}</div>
+@if(isset($name_update_err))
+{{$name_update_err}}
+@endif
 <div style="text-align:center;">
 @foreach($images as $image)
 <div type="button" class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete" style="width: 18rem; margin: 16px; height: 290px;">

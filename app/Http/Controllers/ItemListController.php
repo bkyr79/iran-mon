@@ -28,14 +28,19 @@ class ItemListController extends Controller
     // 商品名変更メソッド
     public function edit(Request $request) {
         $post = Item::find(1);
+        $post = Item::find($request->id);
+        $post->name = $request->goods_name;
+
         if(is_null($_POST)) {
             return redirect('/list');
         }
+        
+        if(empty($request->goods_name)){
+            return redirect("/list");
+        }
 
-        $post = Item::find($request->id);
-
-        $post->name = $request->goods_name;
         $post->save();
+
         return redirect('/list');
     }   
 
