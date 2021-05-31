@@ -23,7 +23,7 @@ class ShopController extends Controller
         $request->session()->put('owner_name', $request->owner_name);
         $shop_id = $request->session()->get('owner_id');
         $owner_name = $request->session()->get('owner_name');
-        $uploads = Item::orderBy("updated_at", "desc")->where('user_id', '=', $shop_id)->paginate(12);
+        $uploads = Item::orderByRaw("updated_at desc, created_at desc, id desc")->where('user_id', '=', $shop_id)->paginate(12);
 
         return view("shop", [
             "images" => $uploads,
@@ -36,7 +36,7 @@ class ShopController extends Controller
     public function index(Request $request){
         $shop_id = $request->session()->get('owner_id');
         $owner_name = $request->session()->get('owner_name');
-        $uploads = Item::orderBy("updated_at", "desc")->where('user_id', '=', $shop_id)->paginate(12);
+        $uploads = Item::orderByRaw("updated_at desc, created_at desc, id desc")->where('user_id', '=', $shop_id)->paginate(12);
 
         return view("shop", [
             "images" => $uploads,
