@@ -62,6 +62,39 @@
     .menu-btn:hover {
     cursor: default;
     }
+    .file-select {
+      margin: 9px 0px;
+    }
+    .name-input {
+      position: relative;
+      right: 8px;
+      margin-bottom: 5px;    
+    }  
+    .price-input {
+      margin-top: 0px;
+    }
+    .register-submit {
+      position: relative;
+      left: 100px;
+      margin-top: 8px;
+    }
+    .file-register {
+    display       : inline-block;
+    border-radius : 3%;
+    font-size     : 14pt;
+    text-align    : center;
+    cursor        : pointer;
+    padding       : 8px 12px;
+    background    : rgba(0, 127, 255, 0.1);
+    color         : rgba(0, 127, 255, 0.87);
+    line-height   : 1em;
+    transition    : .3s;
+    border        : 2px solid rgba(0, 127, 255, 0.87);
+    float         : right;
+    position      : relative;
+    top           : 3px;
+    left          : 90px;
+    }
     </style>
 
 </head>
@@ -106,22 +139,21 @@
 
 <hr style="display:block; margin-top:41px;"/>
 
-<div style="text-align:center; margin-top:80px;">
+<div style="text-align:center; margin-top:20px;">
 <form
   method="post"
   action="{{ route('upload_image') }}"
   enctype="multipart/form-data"
 >
   @csrf
-  <input type="file" name="file_path" accept="image/png, image/jpeg" onchange="previewImage(this);">
-  <p sytle="display:inlin-block;"><label for="">商品名：</label><input type="text" name="goods_name"></p>
-  <p sytle="display:inlin-block;"><label for="">価格：</label><input type="text" name="goods_price"></p>
-  <input type="submit" value="登録">
+  <div class="file-select"><input type="file" name="file_path" accept="image/png, image/jpeg" onchange="previewImage(this);"></div>
+  <div class="name-input"><label for="">商品名：</label><input type="text" name="goods_name"></div>
+  <div class="price-input"><label for="">価格：</label><input type="text" name="goods_price"></div>
+  <div style="display:inline-block; text-align:center;"><p style="float:left; position:relative; right:100px; top:64px;">Preview:</p><p><input type="submit" value="登録" class="file-register"></p></div>
 </form>
-<p>
-Preview:<br>
+<div>
 <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="width: 246px; height: 246px;">
-</p>
+</div>
 </div>
 
 <!-- プレビュー画像を表示させる -->
