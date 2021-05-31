@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Storage;
 
 class ItemListController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     function show(){
         //where句で条件指定することで、ログインユーザーの商品のみを表示させる
         $uploads = Item::orderBy("updated_at", "desc")->where('user_id', '=', Auth::id())->paginate(12);

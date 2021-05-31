@@ -13,6 +13,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ShopController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function show(Request $request){
         // $shop_idは、shoplist画面で選択されたショップオーナーのid。
         $request->session()->put('owner_id', $request->owner_id);

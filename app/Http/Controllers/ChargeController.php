@@ -10,6 +10,12 @@ use App\Item;
 
 class ChargeController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+
+        
+    }
+
     /*単発決済用のコード*/
     public function chargeAndChangeOwnership(Request $request)
     {

@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\DB;
 
 class ShopListController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     function index(){
         $shop_owner_id = DB::table('users')->get();
 
