@@ -10,10 +10,10 @@
     <form class="form mt-5" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
     @csrf
 
-      <label for="file_photo" class="rounded-circle userProfileImg">
+      <!-- <label for="file_photo" class="rounded-circle userProfileImg">
         <div class="userProfileImg_description">画像をアップロード</div>
         <i class="fas fa-camera fa-3x"></i>
-        <input type="file" id="file_photo" name="img_name">
+        <input type="file" id="file_photo" name="img_name"> -->
 
       </label>
       <div class="userImgPreview" id="userImgPreview">
@@ -22,7 +22,7 @@
       </div>
       <div class="form-group @error('name')has-error @enderror">
         <label>名前</label>
-        <input type="text" name="name" class="form-control" placeholder="名前を入力してください">
+        <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="名前を入力してください">
         @error('name')
             <span class="errorMessage">
               {{ $message }}
@@ -32,7 +32,7 @@
     </div>
       <div class="form-group @error('email')has-error @enderror">
         <label>メールアドレス</label>
-        <input type="email" name="email" class="form-control" placeholder="メールアドレスを入力してください">
+        <input type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="メールアドレスを入力してください">
         @error('email')
             <span class="errorMessage">
               {{ $message }}
@@ -53,7 +53,7 @@
         <label>確認用パスワード</label>
         <input type="password" name="password_confirmation" class="form-control" placeholder="パスワードを再度入力してください">
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <div><label>性別</label></div>
         <div class="form-check form-check-inline">
           <input class="form-check-input" name="sex" value="0" type="radio" id="inlineRadio1" checked>
@@ -63,8 +63,8 @@
         <input class="form-check-input" name="sex" value="1" type="radio" id="inlineRadio2">
           <label class="form-check-label" for="inlineRadio2">女</label>
         </div>
-      </div>
-      <div class="form-group @error('self_introduction')has-error @enderror">
+      </div> -->
+      <!-- <div class="form-group @error('self_introduction')has-error @enderror">
         <label>自己紹介文</label>
         <textarea class="form-control" name="self_introduction" rows="10"></textarea>
           @error('self_introduction')
@@ -72,7 +72,7 @@
             {{ $message }}
           </span>
           @enderror
-        </div>  
+        </div>   -->
     </div>
 
       <div class="text-center">

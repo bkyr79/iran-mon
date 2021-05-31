@@ -75,6 +75,7 @@
     transition    : .3s;
     box-shadow    : 2px 2px 4px #666666;
     border        : 2px solid rgba(0, 127, 255, 0.87);
+    margin-bottom : 18px; 
     }
     .shop-name:hover {
     box-shadow    : none;
