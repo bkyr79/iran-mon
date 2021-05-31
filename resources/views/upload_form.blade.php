@@ -157,8 +157,8 @@
 >
   @csrf
   <div class="file-select"><input type="file" name="file_path" accept="image/png, image/jpeg" onchange="previewImage(this);"></div>
-  <div class="name-input"><label for="">商品名：</label><input type="text" name="goods_name"></div>
-  <div class="price-input"><label for="">価格：</label><input type="text" name="goods_price"></div>
+  <div class="name-input"><label for="">商品名：</label><input type="text" name="goods_name" value="{{ old('goods_name') }}"></div>
+  <div class="price-input"><label for="">価格：</label><input type="text" name="goods_price" value="{{ old('goods_price') }}"></div>
   <div class="label-and-regbtn"><p style="float:left; position:relative; right:100px; top:64px;">Preview:</p><p><input type="submit" value="登録" class="file-register"></p></div>
 </form>
 <div class="pre-image">
