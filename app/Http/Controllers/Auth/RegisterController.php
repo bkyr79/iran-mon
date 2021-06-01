@@ -137,8 +137,8 @@ class RegisterController extends Controller
     {    
         // 仮のユーザーデータを作成し、変数に代入する
         $dummy_data = User::create([
-            'name' => 'ゲスト',
-            'email' => '14@gmail.com',
+            'name' => 'ゲスト'.mt_rand(10, 99),
+            'email' => mt_rand().'@gmail.com',
             'password' => Hash::make('12345678'),
         ]);
         
