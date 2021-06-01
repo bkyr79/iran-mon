@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 use Intervention\Image\Facades\Image; 
 
@@ -130,5 +131,22 @@ class RegisterController extends Controller
 
             // 'img_name' => $fileNameToStore,
         ]);
+    }
+
+    public function guestUserCreate(Request $request)
+    {    
+        // 仮のユーザーデータを作成し、変数に代入する
+        $dummy_data = User::create([
+            'name' => 'ゲスト',
+            'email' => '14@gmail.com',
+            'password' => Hash::make('12345678'),
+        ]);
+        
+        // セッションに保存する
+        $this->guard()->login($dummy_data);
+
+        return $this->registered($request, $dummy_data)
+        ?: redirect($this->redirectPath());
+
     }
 }

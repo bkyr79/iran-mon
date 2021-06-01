@@ -70,6 +70,10 @@
                     @auth
                         <a href="{{ url('/list') }}">Home</a>
                     @else
+                        <form action="{{ url('guest_login') }}">
+                        <input type="submit" value="簡単LOGIN">
+                        </form>
+
                         <a href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))

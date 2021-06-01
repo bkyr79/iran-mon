@@ -4,6 +4,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/guest_login', 'Auth\RegisterController@guestUserCreate')->name('guest_login');
+
 Route::get('/form', 
 	[App\Http\Controllers\ItemController::class, "show"]
 	)->name("upload_form");
