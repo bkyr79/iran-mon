@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.filelist')
 @section('title', $owner_name.'さんのショップ')
 
 @section('stylesheet')

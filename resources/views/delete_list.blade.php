@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.filelist')
 @section('title', '削除ページ')
 
 @section('stylesheet')
