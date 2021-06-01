@@ -4,76 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    ul.header-dropmenu {
-    list-style: none;
-    width: 100%;
-    height: 40px;
-    margin: 0 auto;
-    padding: 0;
-    display: block;
-    table-layout: fixed;
-    }
-    ul.header-dropmenu > li {
-    position: relative;
-    /* display: table-cell; */
-    vertical-align: middle;
-    border: 1px solid #f8f8f8;
-    background: #f8f8f8; /* 背景色*/
-    }
-    ul.header-dropmenu li a {
-    display: block;
-    text-align: center;
-    line-height: 40px;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 14px;
-    }
-    ul.header-dropmenu li ul {
-    visibility: hidden;
-    width: 100%;
-    list-style: none;
-    position: absolute;
-    top: 100%;
-    left: -1px;
-    margin: 0;
-    padding: 0;
-    border: 1px solid #222; /* マウスオーバー時の枠線 */
-    border-top: none;
-    border-right: none;
-    }
-    ul.header-dropmenu li:hover ul {
-    visibility: visible;
-    }
-    ul.header-dropmenu li ul li {
-    background: #fff;
-    transition: all .2s ease;
-    }
-    ul.header-dropmenu > li:hover {
-    background: #fff;
-    border: 1px solid #222; /* マウスオーバー時の枠線 */
-    border-bottom: none;
-    border-right: none;
-    }
-    ul.header-dropmenu li:hover ul li:hover {
-    background: #f8f8f8;
-    }
-    .menu-btn:hover {
-    cursor: default;
-    }
-    .goods-name {
-        float: left;
-        margin-left: 45px;
-        font-size: 20px;
-        font-weight: bold;
-    }
-    .goods-price {
-        float: right;
-        margin-right: 20px;
-        padding-top: 3px;
-    }
-    </style>
+    <title>{{ $owner_name }}さんのショップ</title>
+    <link href="{{ asset('/css/shop.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -86,11 +18,11 @@
 
 <!-- ユーザー名を表示 -->
 <!-- これは間違え。改善要 → ×ログイン中のユーザー ○他ショップのオーナー（=他ユーザー） -->
-    <div style="text-align:right; padding-top:5px; padding-right:9px; color:gray;">{{ Auth::user()->name }}さんがログイン中</div>
-    <div style="text-align:center; margin-top:50px; margin-bottom:0px; display:inleine-block; font-size:19px;">{{ $owner_name }}さんのショップ</div>
-    <div style="width:120px; position:absolute; right:0px; ">
+    <div class="login-state">{{ Auth::user()->name }}さんがログイン中</div>
+    <div class="shop-title">{{ $owner_name }}さんのショップ</div>
+    <div class="acc-menu">
     <ul class="header-dropmenu">
-    <li style="">
+    <li>
         <a href="#" class="menu-btn">メニュー</a>
         <ul>
         <li><a href="{{ url('/list') }}">マイページ</a></li>
@@ -108,19 +40,19 @@
         @csrf
     </form>
 
-    <hr style="display:block; margin-top:41px;"/>
+    <hr class="sepa-border"/>
 
-<div style="text-align:center; margin: 0 600px;">{{ $images->links() }}</div>
-<div style="text-align:center;">
+<div class="top-pagi">{{ $images->links() }}</div>
+<div class="image-list">
 @foreach($images as $image)
     <!-- nameプロバティとvalueプロパティがポイント -->
-    <button type="button" class="buy-confirm btn btn-success" name="id[]" value="{{ $image->id }}" data-toggle="modal" data-target="#confirm-buy" style="width: 18rem; margin: 16px; height: 290px;">
-        <img src="{{ Storage::url($image->file_path) }}" style="width: 100%; height: 246px;"/>
+    <button type="button" class="buy-confirm btn btn-success" name="id[]" value="{{ $image->id }}" data-toggle="modal" data-target="#confirm-buy">
+        <img src="{{ Storage::url($image->file_path) }}"/>
         <div><div class="goods-name">{{ $image->name }}　</div><div class="goods-price">¥{{ $image->price }}</div></div>
     </button>
 @endforeach
 </div>
-<div style="text-align:center; margin: 0 600px;">{{ $images->links() }}</div>
+<div class="bottom-pagi">{{ $images->links() }}</div>
 
 <!-- Modal -->
 @foreach($images as $image)
