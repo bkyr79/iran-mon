@@ -21,7 +21,7 @@
 
       <div class="form-group @error('password')has-error @enderror">
         <label>パスワード</label>
-        <input type="password" name="password" class="form-control" placeholder="パスワードを入力してください">
+        <input type="password" name="password" value="{{ old('password') }}" class="form-control" placeholder="パスワードを入力してください">
         @error('password')
         <span class="errorMessage">
           {{ $message }}

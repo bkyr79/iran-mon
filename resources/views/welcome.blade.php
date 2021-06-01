@@ -18,7 +18,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/list') }}">Home</a>
+                        <a href="{{ url('/list') }}">My page</a>
                     @else
                         <form action="{{ url('guest_login') }}">
                         <input type="submit" value="簡単LOGIN" class="easy-login">
