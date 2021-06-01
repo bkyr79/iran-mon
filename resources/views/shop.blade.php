@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', '{{ $owner_name }}さんのショップ')
+@section('title', $owner_name.'さんのショップ')
 
 @section('stylesheet')
     <link href="{{ asset('/css/shop.css') }}" rel="stylesheet" type="text/css">
