@@ -12,7 +12,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-color: rgb(40, 167, 69, 0.04);
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -61,6 +61,29 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .easy-login {
+                position: relative;
+                bottom: 4px;
+                right: 100px;
+                float: left;
+                padding: 4px 6px;
+                background: white;
+                color: #636b6f;
+                font-family: 'Nunito', sans-serif;
+                font-weight: bold;
+                letter-spacing: .1rem;
+                border-color: rgb(98, 108, 112, 0.5);
+                border-radius: 3px;
+                cursor: pointer;
+            }
+            .login {
+                position: relative;
+                right: 90px;               
+            }
+            .register {
+                position: relative;
+                bottom: 22px;                
+            }
         </style>
     </head>
     <body>
@@ -71,13 +94,13 @@
                         <a href="{{ url('/list') }}">Home</a>
                     @else
                         <form action="{{ url('guest_login') }}">
-                        <input type="submit" value="簡単LOGIN">
+                        <input type="submit" value="簡単LOGIN" class="easy-login">
                         </form>
 
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}" class="login">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}" class="register">Register</a>
                         @endif
                     @endauth
                 </div>

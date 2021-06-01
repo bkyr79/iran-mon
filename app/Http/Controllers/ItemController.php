@@ -41,8 +41,8 @@ class ItemController extends Controller
 			//アップロードされた画像を保存する
 			$path = $upload_image->store('uploads',"public");
 			$user_id = Auth::id(); //『Auth::id()』でログイン中のidを取得できる
-			$goods_name = $request->in'goods_name');
-			$goods_price = $request->in'goods_price');
+			$goods_name = $request->input('goods_name');
+			$goods_price = $request->input('goods_price');
 						
 			//画像の保存に成功したらDBに記録する
 			if($path){
