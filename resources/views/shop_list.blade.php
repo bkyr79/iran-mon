@@ -4,85 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-    ul.header-dropmenu {
-    list-style: none;
-    width: 100%;
-    height: 40px;
-    margin: 0 auto;
-    padding: 0;
-    display: block;
-    table-layout: fixed;
-    }
-    ul.header-dropmenu > li {
-    position: relative;
-    /* display: table-cell; */
-    vertical-align: middle;
-    border: 1px solid #f8f8f8;
-    background: #f8f8f8; /* 背景色*/
-    }
-    ul.header-dropmenu li a {
-    display: block;
-    text-align: center;
-    line-height: 40px;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 14px;
-    }
-    ul.header-dropmenu li ul {
-    visibility: hidden;
-    width: 100%;
-    list-style: none;
-    position: absolute;
-    top: 100%;
-    left: -1px;
-    margin: 0;
-    padding: 0;
-    border: 1px solid #222; /* マウスオーバー時の枠線 */
-    border-top: none;
-    border-right: none;
-    }
-    ul.header-dropmenu li:hover ul {
-    visibility: visible;
-    }
-    ul.header-dropmenu li ul li {
-    background: #fff;
-    transition: all .2s ease;
-    }
-    ul.header-dropmenu > li:hover {
-    background: #fff;
-    border: 1px solid #222; /* マウスオーバー時の枠線 */
-    border-bottom: none;
-    border-right: none;
-    }
-    ul.header-dropmenu li:hover ul li:hover {
-    background: #f8f8f8;
-    }
-    .menu-btn:hover {
-    cursor: default;
-    }
-    .shop-name {
-    display       : inline-block;
-    border-radius : 3%;
-    font-size     : 14pt;
-    text-align    : center;
-    cursor        : pointer;
-    padding       : 12px 12px;
-    background    : rgba(0, 127, 255, 0.1);
-    color         : rgba(0, 0, 0, 0.71);
-    line-height   : 1em;
-    transition    : .3s;
-    box-shadow    : 2px 2px 4px #666666;
-    border        : 2px solid rgba(0, 127, 255, 0.87);
-    margin-bottom : 18px; 
-    }
-    .shop-name:hover {
-    box-shadow    : none;
-    color         : rgba(0, 127, 255, 0.87);
-    background    : rgba(0, 0, 0, 0.22);
-    }
-    </style>
+    <title>ショップ一覧ページ</title>
+    <link href="{{ asset('/css/shop_list.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -93,9 +16,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-<div style="text-align:right; padding-top:5px; padding-right:9px; color:gray;">{{ Auth::user()->name }}さんがログイン中</div>
-<div style="text-align:center; margin-top:50px; margin-bottom:0px; display:inleine-block; font-size:19px;">ショップ一覧</div>
-<div style="width:120px; position:absolute; right:0px; ">
+<div class="login-state">{{ Auth::user()->name }}さんがログイン中</div>
+<div class="shoplist-title">ショップ一覧</div>
+<div class="acc-menu">
 <ul class="header-dropmenu">
   <li>
     <a href="#" class="menu-btn">メニュー</a>
@@ -112,8 +35,8 @@
     @csrf
 </form>
 
-<hr style="display:block; margin-top:41px;"/>
-<div style="text-align:center; margin-top:80px;">
+<hr class="sepa-border"/>
+<div class="shoplist-content">
 @foreach($shop_owner_id as $one_id)
     <form action="/shop" method="post">
     @csrf
