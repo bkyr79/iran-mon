@@ -1,0 +1,45 @@
+.shop-name {
+  display       : inline-block;
+  border-radius : 3%;
+  font-size     : 14pt;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 12px 12px;
+  background    : rgba(0, 127, 255, 0.1);
+  color         : rgba(0, 0, 0, 0.71);
+  line-height   : 1em;
+  transition    : .3s;
+  box-shadow    : 2px 2px 4px #666666;
+  border        : 2px solid rgba(0, 127, 255, 0.87);
+  margin-bottom : 18px; 
+}
+.shop-name:hover {
+  box-shadow    : none;
+  color         : rgba(0, 127, 255, 0.87);
+  background    : rgba(0, 0, 0, 0.22);
+}
+.shoplist-title {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0px;
+  font-size: 19px;
+}
+.login-state {
+  text-align: right;
+  padding-top: 5px;
+  padding-right: 9px;
+  color: gray; 
+}
+.acc-menu {
+  width: 120px;
+  position: absolute;
+  right: 0px;
+}
+.sepa-border {
+  display: block;
+  margin-top: 41px;  
+}
+.shoplist-content {
+  text-align: center;
+  margin-top: 80px;
+}

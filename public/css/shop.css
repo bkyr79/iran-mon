@@ -1,0 +1,52 @@
+.goods-name {
+  float: left;
+  margin-left: 45px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.goods-price {
+  float: right;
+  margin-right: 20px;
+  padding-top: 3px;
+}
+.shop-title {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0px;
+  font-size: 19px;
+}
+.login-state {
+  text-align: right;
+  padding-top: 5px;
+  padding-right: 9px;
+  color: gray;
+}
+.acc-menu {
+  width: 120px;
+  position: absolute;
+  right: 0px;
+}
+.sepa-border {
+  display: block;
+  margin-top: 41px;
+}
+.image-list {
+  text-align: center;
+}
+.top-pagi {
+  text-align: center;
+  margin: 0 600px;
+}
+.bottom-pagi {
+  text-align: center;
+  margin: 0 600px;
+}
+.buy-confirm {
+  width: 18rem;
+  margin: 16px;
+  height: 290px;
+}
+.buy-confirm img {
+  width: 100%;
+  height: 246px;
+}

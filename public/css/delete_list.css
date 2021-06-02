@@ -1,0 +1,67 @@
+  .login-state {
+    text-align: right;
+    padding-top: 5px;
+    padding-right: 9px;
+    color: gray; 
+  }
+  .deletepage-title {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    font-size: 19px;
+  }
+  .acc-menu {
+    width: 120px;
+    position: absolute;
+    right: 0px;
+  }
+  .dele-btn {
+    display: relative;
+    top: -20px;
+    margin-left: 70px;
+    padding: 3px 7px;
+    border-radius: 4%;  
+  }
+  .top-pagi {
+    text-align: center;
+    margin: 0 600px;   
+  }
+  .bottom-pagi {
+    text-align: center;
+    float: left;
+    margin: 0 600px;
+  }
+  .sepa-border {
+    display: block;
+    margin-top: 41px;  
+  }
+  .image-list {
+    text-align: center;
+  }
+  .delete-confirm {
+    width: 18rem;
+    margin: 16px;
+    height: 290px;
+    cursor: default;
+  }
+  .delete-confirm img {
+    width: 100%;
+    height: 246px;
+  }
+  .delepage-img {
+    width: 92%;
+    display: inline-block;
+    padding: 0px;
+    border: 0px;
+  }
+  .goods_name {
+    display: block;
+    margin: auto;
+    text-align: center;
+    border: #28a745;
+    background-color: #28a745;
+    font-weight: bold;
+  }
+  .goods_name span {
+    color: black;
+  }

@@ -1,0 +1,78 @@
+.file-select {
+  margin: 9px 0px;
+}
+.name-input {
+  position: relative;
+  right: 8px;
+  margin-bottom: 5px;    
+}  
+.price-input {
+  margin-top: 0px;
+}
+.register-submit {
+  position: relative;
+  left: 100px;
+  margin-top: 8px;
+}
+.file-register {
+  display       : inline-block;
+  border-radius : 3%;
+  font-size     : 14pt;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 8px 12px;
+  background    : rgba(0, 127, 255, 0.1);
+  color         : rgba(0, 127, 255, 0.87);
+  line-height   : 1em;
+  transition    : .3s;
+  border        : 2px solid rgba(0, 127, 255, 0.87);
+  float         : right;
+  position      : relative;
+  top           : 3px;
+  left          : 90px;
+}
+.label-and-regbtn {
+  display    : inline-block;
+  text-align : center;
+  position   : relative;
+  bottom     : 35px;
+}
+.pre-image {
+  position : relative;
+  bottom   : 30px;
+}
+.uploadpage-title {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0px;
+  font-size: 19px;
+}
+.login-state {
+  text-align: right;
+  padding-top: 5px;
+  padding-right: 9px;
+  color: gray; 
+}
+.acc-menu {
+  width: 120px;
+  position: absolute;
+  right: 0px;
+}
+.sepa-border {
+  display: block;
+  margin-top: 41px;  
+}
+.uploadpage-content {
+  text-align: center;
+  margin-top: 20px;
+}
+.preview-title {
+  float: left;
+  position: relative;
+  right: 100px;
+  top: 64px;
+}
+.preview-img {
+  width: 246px;
+  height: 246px;
+}
