@@ -1,7 +1,7 @@
 .shop-name {
   display       : inline-block;
   border-radius : 3%;
-  font-size     : 14pt;
+  font-size     : 1.1em;
   text-align    : center;
   cursor        : pointer;
   padding       : 12px 12px;
@@ -22,13 +22,14 @@
   text-align: center;
   margin-top: 50px;
   margin-bottom: 0px;
-  font-size: 19px;
+  font-size: 1.2em;
 }
 .login-state {
   text-align: right;
   padding-top: 5px;
   padding-right: 9px;
   color: gray; 
+  font-size: 1em;
 }
 .acc-menu {
   width: 120px;

@@ -3,12 +3,13 @@
     padding-top: 5px;
     padding-right: 9px;
     color: gray; 
+    font-size: 1em;
   }
   .deletepage-title {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 0px;
-    font-size: 19px;
+    font-size: 1.2em;
   }
   .acc-menu {
     width: 120px;
@@ -21,6 +22,7 @@
     margin-left: 70px;
     padding: 3px 7px;
     border-radius: 4%;  
+    font-size: 1em;
   }
   .top-pagi {
     text-align: center;
@@ -61,6 +63,7 @@
     border: #28a745;
     background-color: #28a745;
     font-weight: bold;
+    font-size: 1em;
   }
   .goods_name span {
     color: black;

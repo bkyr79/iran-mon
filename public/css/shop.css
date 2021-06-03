@@ -1,25 +1,27 @@
 .goods-name {
   float: left;
   margin-left: 45px;
-  font-size: 20px;
+  font-size: 1.2em;
   font-weight: bold;
 }
 .goods-price {
   float: right;
   margin-right: 20px;
   padding-top: 3px;
+  font-size: 1em;
 }
 .shop-title {
   text-align: center;
   margin-top: 50px;
   margin-bottom: 0px;
-  font-size: 19px;
+  font-size: 1.2em;
 }
 .login-state {
   text-align: right;
   padding-top: 5px;
   padding-right: 9px;
   color: gray;
+  font-size: 1em;
 }
 .acc-menu {
   width: 120px;

@@ -1,3 +1,6 @@
+body {
+  font-size: 100%;
+}
 .submit_visible {
   visibility: visible;
 }
@@ -23,7 +26,7 @@ ul.header-dropmenu li a {
   line-height: 40px;
   font-weight: bold;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 0.9em;
 }
 ul.header-dropmenu li ul {
   visibility: hidden;

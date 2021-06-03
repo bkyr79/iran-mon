@@ -2,13 +2,14 @@
   text-align: center;
   margin-top: 50px;
   margin-bottom: 0px;
-  font-size: 19px;
+  font-size: 1.2em;
 }
 .login-state {
   text-align: right;
   padding-top: 5px;
   padding-right: 9px;
   color: gray; 
+  font-size: 1em;
 }
 .acc-menu {
   width: 120px;
@@ -47,6 +48,7 @@
   border: #28a745;
   background-color: #28a745;
   font-weight: bold;
+  font-size: 1em;
 }
 .delete-confirm {
   width: 18rem;
