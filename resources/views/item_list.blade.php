@@ -5,6 +5,17 @@
   <link href="{{ asset('/css/item_list.css') }}" rel="stylesheet" type="text/css">
 @endsection
 
+<!-- マイページに商品が無い場合にalertを開く -->
+@if($images=="")
+  @section('tutorial-pop')
+      <script>
+      window.onload = function(){
+        alert("商品を登録しよう！商品はメニューからuploadするか、ショップで購入しよう");
+      }
+      </script>
+  @endsection
+@endif
+
 @section('header')
   <div class="mypage-title">{{ Auth::user()->name }}さんのマイページ</div>
   <div class="acc-menu">

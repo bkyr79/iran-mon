@@ -10,6 +10,8 @@
 </head>
 <body>
 
+@yield('tutorial-pop')
+
 <!-- Bootstrap導入 -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <!-- Bootstrap Javascript(jQuery含む) -->
@@ -19,7 +21,9 @@
 
 <!-- ユーザー名を表示 -->
 <div class="login-state">{{ Auth::user()->name }}さんがログイン中</div>
+
 @yield('header')
+
 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf
 </form>
