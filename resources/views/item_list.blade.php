@@ -8,11 +8,26 @@
 <!-- マイページに商品が無い場合にalertを開く -->
 @if($images=="")
   @section('tutorial-pop')
-      <script>
-      window.onload = function(){
-        alert("商品を登録しよう！商品はメニューからuploadするか、ショップで購入しよう");
-      }
-      </script>
+    <dialog class="tutorial">
+          <p>商品を登録しよう！商品は<span>メニュー</span>からuploadするか、ショップで購入できます</p>
+      <div>
+        <button id='closebutton'>閉じる</button>
+      </div>
+    </dialog>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="js/jquery.layerBoard.js"></script>
+
+    <script>
+    $(function(){
+      $('.tutorial').toggleClass('visible');
+    })
+
+    closebutton.onclick = () => {
+      $('.visible').toggleClass('tutorial');
+    }
+    </script>
   @endsection
 @endif
 

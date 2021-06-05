@@ -55,3 +55,94 @@
   margin: 16px;
   height: 290px;
 }
+/* #tutorial {
+  position:fixed;
+  width: 350px;
+  height: 130px;
+  left: -900px;
+} */
+dialog {
+  border-color: #38c172;
+}
+#closebutton {
+  position: relative;
+  left: 230px;
+  top: 3px;
+}
+.tutorial {
+  display: absolute;
+  top: 165px;
+  left: 780px;
+  background: #38c172;
+  display: none;
+  height: 130px;
+  width: 350px;
+  opacity: 1;
+}
+.tutorial span {
+  color: #003BFF;
+  font-weight: bold;
+  border-radius: 4%;
+}
+.tutorial p:after {
+  content: "";
+  position: absolute;
+  top: 10px; 
+  right: -45px;
+  border: 15px solid transparent;
+  border-left: 40px solid #38c172;
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
+.visible.tutorial {
+  display: block;
+  opacity: 0.7;
+  animation-duration: 0.5s;
+  animation-name: fade-in;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-name: fade-in;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-name: fade-in;
+}
+@keyframes fade-in {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 0.7;
+  }
+}
+@-moz-keyframes fade-in {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 0.7;
+  }
+}
+@-webkit-keyframes fade-in {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    display: block;
+    opacity: 0.7;
+  }
+}
