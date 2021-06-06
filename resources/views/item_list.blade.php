@@ -50,6 +50,12 @@
   </div>
 @endsection
 
+@if($images!="")
+  @section('favorite-btn')
+  <button type="submit" class="fav-btn" form="fav_btn">お気に入り登録</button>
+  @endsection
+@endif
+
 @section('content')
   <div class="image-list">
   @foreach($images as $image)
@@ -61,6 +67,10 @@
     </button>
     <input type="text" class="goods_name" name="goods_name" value="{{ $image->name }}">
     <input type="hidden" name="id" value="{{ $image->id }}">
+    </form>
+    <form action="" id="fav_btn" method="post">
+      @csrf
+      <input type="checkbox" class="fav-check" name="fav_checks[]" value="{{ $image->id }}">
     </form>
   </div>
   @endforeach

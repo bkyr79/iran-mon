@@ -29,6 +29,7 @@
 </form>
 <hr class="sepa-border"/>
 @yield('div')
+@yield('favorite-btn')
 <div class="top-pagi">{{ $images->links() }}</div>
 @yield('content')
 <div class="bottom-pagi">{{ $images->links() }}</div>

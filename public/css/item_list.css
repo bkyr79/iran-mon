@@ -27,6 +27,16 @@
   display: block;
   margin-top: 41px;  
 }
+.fav-btn {
+  position: relative;
+  left: 75px;
+  top: 25px;
+  padding: 4px 15px;
+  cursor: pointer;
+  color: #007bff;
+  border-color: #007bff;
+  border-radius: 4%;
+}
 .image-list {
   text-align: center;
 }
@@ -49,6 +59,12 @@
   background-color: #28a745;
   font-weight: bold;
   font-size: 1em;
+}
+.fav-check {
+  position: relative;
+  right: 11px;
+  bottom: 16px;
+  float: right;
 }
 .delete-confirm {
   width: 18rem;
