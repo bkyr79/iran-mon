@@ -70,7 +70,7 @@
     </form>
     <form action="" id="fav_btn" method="post">
       @csrf
-      <input type="checkbox" class="fav-check" name="fav_checks[]" value="{{ $image->id }}">
+      <input type="checkbox" class="fav-check" name="fav_checks[]" value="{{ $image->id }}" style="display:none;">
     </form>
   </div>
   @endforeach
