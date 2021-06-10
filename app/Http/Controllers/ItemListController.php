@@ -19,9 +19,11 @@ class ItemListController extends Controller
     function show(){
         //where句で条件指定することで、ログインユーザーの商品のみを表示させる
         $uploads = Item::orderByRaw("updated_at desc, created_at desc, id desc")->where('user_id', '=', Auth::id())->paginate(12);
+        $data_count = Item::where('user_id', '=', Auth::id())->count();
 
         return view("item_list", [
             "images" => $uploads,
+            "data_count" => $data_count,
         ]);
     }
 

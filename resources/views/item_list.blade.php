@@ -6,7 +6,7 @@
 @endsection
 
 <!-- マイページに商品が無い場合にalertを開く -->
-@if($images=="")
+@if($data_count === 0)
   @section('tutorial-pop')
     <dialog class="tutorial">
           <p>商品を登録しよう！商品は<span>メニュー</span>からuploadするか、ショップで購入できます</p>
