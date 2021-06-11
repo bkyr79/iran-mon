@@ -55,7 +55,7 @@ class ItemController extends Controller
       $path = Storage::disk('s3')->putFile('myprefix', $upload_image);
       // アップロードした画像のフルパスを取得
       $item->image_path = Storage::disk('s3')->url($path);
-      $item->save();
+      // $item->save();
 
 
 
