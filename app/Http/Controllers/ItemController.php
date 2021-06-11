@@ -35,15 +35,35 @@ class ItemController extends Controller
 			'goods_price.max'  => '価格は1000円以下で入力してください。',
 		]);
 
+
+
+
+
 		$upload_image = $request->file('file_path');
 	
 		if($upload_image) {
-			//アップロードされた画像を保存する
-			$path = $upload_image->store('uploads',"public");
+			//アップロードされた画像を保存する(ローカル用の記述)
+			// $path = $upload_image->store('uploads',"public");
+
+
+			//アップロードされた画像をS3へ保存する(本番用の記述)
+      $item = new Item;
+      $form = $request->all();
+
+      //s3アップロード開始
+      $upload_image = $request->file('file_path');
+      // バケットの`myprefix`フォルダへアップロード
+      $path = Storage::disk('s3')->putFile('myprefix', $upload_image, 'public');
+      // アップロードした画像のフルパスを取得
+      $item->image_path = Storage::disk('s3')->url($path);
+      $item->save();
+
+
+
 			$user_id = Auth::id(); //『Auth::id()』でログイン中のidを取得できる
 			$goods_name = $request->input('goods_name');
 			$goods_price = $request->input('goods_price');
-						
+
 			//画像の保存に成功したらDBに記録する
 			if($path){
 				Item::create([
