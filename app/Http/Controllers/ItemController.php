@@ -53,7 +53,7 @@ class ItemController extends Controller
       //s3アップロード開始
       $upload_image = $request->file('file_path');
       // バケットの`myprefix`フォルダへアップロード
-      $path = Storage::disk('s3')->putFile('myprefix', $upload_image, 'public');
+      $path = Storage::disk('s3')->putFile('myprefix', $upload_image);
       // アップロードした画像のフルパスを取得
       $item->image_path = Storage::disk('s3')->url($path);
       $item->save();
