@@ -75,7 +75,7 @@ class ItemController extends Controller
 		// 			// 'file_name' => $fileNameToStore
 		// 		]);
 		// 	}
-		// }
+		}
 
 		// //引数 $data から name='file_name'を取得(アップロードするファイル情報)
 		// $imageFile = $request->file_path;
