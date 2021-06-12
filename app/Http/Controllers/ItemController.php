@@ -55,26 +55,26 @@ class ItemController extends Controller
       $path = Storage::disk('s3')->putFile('myprefix', $upload_image);
       // アップロードした画像のフルパスを取得
       $item->image_path = Storage::disk('s3')->url($path);
-      $item->save();
+      // $item->save();
 
 
 
-		// 	$user_id = Auth::id(); //『Auth::id()』でログイン中のidを取得できる
-		// 	$goods_name = $request->input('goods_name');
-		// 	$goods_price = $request->input('goods_price');
+			$user_id = Auth::id(); //『Auth::id()』でログイン中のidを取得できる
+			$goods_name = $request->input('goods_name');
+			$goods_price = $request->input('goods_price');
 
 		// 	//画像の保存に成功したらDBに記録する
-		// 	if($path){
-		// 		Item::create([
-		// 			//ログイン中ユーザーIDを取得
-		// 			"user_id" => $user_id,
-		// 			"name" => $goods_name,
-		// 			"price" => $goods_price,
-		// 			"file_name" => $upload_image->getClientOriginalName(),
-		// 			"file_path" => $path,
-		// 			// 'file_name' => $fileNameToStore
-		// 		]);
-		// 	}
+			if($path){
+				Item::create([
+					//ログイン中ユーザーIDを取得
+					"user_id" => $user_id,
+					"name" => $goods_name,
+					"price" => $goods_price,
+					"file_name" => $upload_image->getClientOriginalName(),
+					"file_path" => $path,
+					// 'file_name' => $fileNameToStore
+				]);
+			}
 		}
 
 		// //引数 $data から name='file_name'を取得(アップロードするファイル情報)
