@@ -19,22 +19,22 @@ class ItemController extends Controller
 	}
 
 	function upload(Request $request){
-		$request->validate([
-			'file_path' => 'required|file|image|mimes:png,jpeg',
-			// 'file_name' => ['file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2000']
-			'file_name' => ['file', 'image', 'mimes:jpeg,png,jpg,gif'],
-			'goods_name' => ['required', 'string'],
-			'goods_price' => ['required', 'integer', 'min:1', 'max:1000'],
-		],
-		[
-			'file_path.required' => '商品写真は必須です。',
-			'goods_name.required' => '商品名は必須です。',
-			'goods_name.string' => '商品名が正しくありません。',
-			'goods_price.required'  => '価格は必須です。',
-			'goods_price.integer'  => '価格は数字で入力してください。',
-			'goods_price.min'  => '価格は1円以上で入力してください。',
-			'goods_price.max'  => '価格は1000円以下で入力してください。',
-		]);
+		// $request->validate([
+		// 	'file_path' => 'required|file|image|mimes:png,jpeg',
+		// 	// 'file_name' => ['file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2000']
+		// 	'file_name' => ['file', 'image', 'mimes:jpeg,png,jpg,gif'],
+		// 	'goods_name' => ['required', 'string'],
+		// 	'goods_price' => ['required', 'integer', 'min:1', 'max:1000'],
+		// ],
+		// [
+		// 	'file_path.required' => '商品写真は必須です。',
+		// 	'goods_name.required' => '商品名は必須です。',
+		// 	'goods_name.string' => '商品名が正しくありません。',
+		// 	'goods_price.required'  => '価格は必須です。',
+		// 	'goods_price.integer'  => '価格は数字で入力してください。',
+		// 	'goods_price.min'  => '価格は1円以上で入力してください。',
+		// 	'goods_price.max'  => '価格は1000円以下で入力してください。',
+		// ]);
 
 
 
