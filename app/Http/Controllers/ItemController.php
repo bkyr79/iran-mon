@@ -65,17 +65,17 @@ class ItemController extends Controller
 			$goods_price = $request->input('goods_price');
 
 		// 	//画像の保存に成功したらDBに記録する
-			// if($path){
-			// 	Item::create([
-			// 		//ログイン中ユーザーIDを取得
-			// 		"user_id" => $user_id,
-			// 		"name" => $goods_name,
-			// 		"price" => $goods_price,
-			// 		"file_name" => $upload_image->getClientOriginalName(),
-			// 		"file_path" => $path,
-			// 		// 'file_name' => $fileNameToStore
-			// 	]);
-			// }
+			if($path){
+				Item::create([
+					//ログイン中ユーザーIDを取得
+					"user_id" => $user_id,
+					"name" => $goods_name,
+					"price" => $goods_price,
+					"file_name" => $upload_image->getClientOriginalName(),
+					"file_path" => $path,
+					// 'file_name' => $fileNameToStore
+				]);
+			}
 		}
 
 		//引数 $data から name='file_name'を取得(アップロードするファイル情報)
