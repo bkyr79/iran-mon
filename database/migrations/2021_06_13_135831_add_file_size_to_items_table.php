@@ -14,7 +14,7 @@ class AddFileSizeToItemsTable extends Migration
     public function up()
     {
         Schema::table('items', function (Blueprint $table) {
-            $table->integer('file_size')->default(0);
+            $table->integer('file_size')->length(255)->default(0);
         });
     }
 
