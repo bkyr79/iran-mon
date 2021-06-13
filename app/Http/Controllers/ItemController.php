@@ -60,9 +60,9 @@ class ItemController extends Controller
 
 
 
-			// $user_id = Auth::id(); //『Auth::id()』でログイン中のidを取得できる
-			// $goods_name = $request->input('goods_name');
-			// $goods_price = $request->input('goods_price');
+			$user_id = Auth::id(); //『Auth::id()』でログイン中のidを取得できる
+			$goods_name = $request->input('goods_name');
+			$goods_price = $request->input('goods_price');
 
 		// 	//画像の保存に成功したらDBに記録する
 			// if($path){
