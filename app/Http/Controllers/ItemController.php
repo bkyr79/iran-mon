@@ -118,7 +118,8 @@ class ItemController extends Controller
 
 		//画像を横400px, 縦400pxにリサイズし保存
 		// $image->resize(150,150)->save(storage_path() . '/app/public/uploads/' . $fileNameToStore );
-		$image->resize(150,150)->Storage::disk('s3')->putFile('myprefix', $upload_image->getClientOriginalName());
+		$image->resize(150,150);
+		$path = Storage::disk('s3')->putFile('myprefix', $upload_image->getClientOriginalName());
 
 		return redirect("/list");			
 	}
