@@ -32,7 +32,7 @@
 @endif
 
 @section('header')
-  {{ path }}
+  {{ $path }}
   <div class="mypage-title">{{ Auth::user()->name }}さんのマイページ</div>
   <div class="acc-menu">
   <ul class="header-dropmenu">
