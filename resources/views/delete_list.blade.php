@@ -28,7 +28,7 @@
 @endsection
 
 @section('content')
-  <div><button type="submit" form="delete_form" class="dele-btn">削除する</button></div>
+  <div><button type="submit" form="delete_form" class="dele-btn" name="del_image[]" value="{{ $image->file_path }}">削除する</button></div>
   </div>
   <!-- ↓formタグはループの外に記述する -->
   <form action="/delete" id="delete_form" method="post">
@@ -37,7 +37,7 @@
   <div class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete">
     @csrf
     <input type="checkbox" name="del_checks[]" value="{{ $image->id }}">
-    <input type="hidden" name="del_image[]" value="{{ $image->file_path }}">
+    <!-- <input type="hidden" name="del_image[]" value="{{ $image->file_path }}"> -->
     <div class="delepage-img">
       <img src="{{ Storage::disk('s3')->url($image->file_path) }}"/>
     </div>
