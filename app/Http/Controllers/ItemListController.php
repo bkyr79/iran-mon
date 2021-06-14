@@ -9,6 +9,7 @@ use Auth;
 use App\Post;
 use Illuminate\Database\Eloquent\Model; 
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Session\SessionManager;
 
 class ItemListController extends Controller
 {
@@ -24,6 +25,7 @@ class ItemListController extends Controller
         return view("item_list", [
             "images" => $uploads,
             "data_count" => $data_count,
+            "path" => session('path'),
         ]);
     }
 
@@ -60,6 +62,7 @@ class ItemListController extends Controller
         // $del_images->where('id', '=', '24');
         $disk = Storage::disk('s3');
         $disk->delete($del_images->file_path);
+        session(['path' => $del_images->file_path]);
 
         return redirect('/list');
     }
