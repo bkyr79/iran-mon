@@ -52,15 +52,12 @@ class ItemListController extends Controller
     }
 
     public function delete(Request $request){
-        // $path = Storage::disk('s3')->putFile('myprefix', $upload_image, 'public');
-
+        
         Item::destroy($request->del_checks);
 
-        // checkboxで選択された写真たち
-        // $del_images = new Item;
-
-        // $del_images = Item::where('id', '=', $request->del_checks);
-        $del_images = Item::where('id', '=', '24');
+        $del_images = new Item;
+        $del_images->where('id', '=', $request->del_checks);
+        // $del_images->where('id', '=', '24');
         $disk = Storage::disk('s3');
         $disk->delete($del_images->file_path);
 
