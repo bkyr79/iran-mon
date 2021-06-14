@@ -59,11 +59,10 @@ class ItemListController extends Controller
 
         $del_images = new Item;
         // $del_images->where('id', '=', $request->del_checks);
-        $del_images->where('id', '=', '37');
+        $del_images->where('id', '=', '38');
         $disk = Storage::disk('s3');
         $disk->delete($del_images->file_path);
         // session(['path' => $del_images->file_path]);
-        session()->forget('iii');
         session(['iii' => $del_images->file_path]);
 
         return redirect('/list');
