@@ -59,8 +59,8 @@ class ItemListController extends Controller
         // checkboxで選択された写真たち
         // $del_images = new Item;
 
-        $del_images = Item::where('id', '=', $request->del_checks);
-        $del_images = Item::where('id', '=', '22');
+        // $del_images = Item::where('id', '=', $request->del_checks);
+        $del_images = Item::where('id', '=', '24');
         $disk = Storage::disk('s3');
         $disk->delete($del_images->file_path);
 
