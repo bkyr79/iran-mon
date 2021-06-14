@@ -25,7 +25,7 @@ class ItemListController extends Controller
         return view("item_list", [
             "images" => $uploads,
             "data_count" => $data_count,
-            "path" => session('path'),
+            "ses-path" => session('ses_path'),
         ]);
     }
 
@@ -63,7 +63,7 @@ class ItemListController extends Controller
         $disk = Storage::disk('s3');
         $disk->delete($del_images->file_path);
         // session(['path' => $del_images->file_path]);
-        session(['path' => 'あああ']);
+        session(['ses_path' => "あああ"]);
 
         return redirect('/list');
     }

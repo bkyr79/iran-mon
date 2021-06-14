@@ -32,7 +32,6 @@
 @endif
 
 @section('header')
-  {{ $path }}
   <div class="mypage-title">{{ Auth::user()->name }}さんのマイページ</div>
   <div class="acc-menu">
   <ul class="header-dropmenu">
@@ -59,6 +58,7 @@
 
 @section('content')
   <div class="image-list">
+  {{ $ses-path }}
   @foreach($images as $image)
   <div type="button" class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete">
     <form action="/itemlist" name="sampleform" method="post" onsubmit="return func1()">
