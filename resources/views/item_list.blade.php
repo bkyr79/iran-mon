@@ -63,7 +63,7 @@
     <form action="/itemlist" name="sampleform" method="post" onsubmit="return func1()">
     @csrf
     <button type="submit" class="image-btn">
-      <img src="{{ $images->file_path }}"/>
+      <img src="{{ Storage::disk('s3')->url($image->file_path) }}"/>
     </button>
     <input type="text" class="goods_name" name="goods_name" value="{{ $image->name }}">
     <input type="hidden" name="id" value="{{ $image->id }}">
