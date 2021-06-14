@@ -60,8 +60,9 @@ class ItemListController extends Controller
         // $del_images = new Item;
 
         $del_images = Item::where('id', '=', $request->del_checks);
+        $del_images = Item::where('id', '=', '22');
         $disk = Storage::disk('s3');
-        $disk->delete('myprefix/'.$del_images->file_path);
+        $disk->delete($del_images->file_path);
 
         return redirect('/list');
     }
