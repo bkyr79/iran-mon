@@ -52,7 +52,13 @@ class ItemListController extends Controller
     }
 
     public function delete(Request $request){
+        // $path = Storage::disk('s3')->putFile('myprefix', $upload_image, 'public');
+
         Item::destroy($request->del_checks);
+
+        // $disk = Storage::disk('s3');
+        // $disk->delete($path);
+        
         return redirect('/list');
     }
 }
