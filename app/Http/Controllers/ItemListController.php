@@ -62,7 +62,8 @@ class ItemListController extends Controller
         // $del_images->where('id', '=', '24');
         $disk = Storage::disk('s3');
         $disk->delete($del_images->file_path);
-        session(['path' => $del_images->file_path]);
+        // session(['path' => $del_images->file_path]);
+        session(['path' => 'あああ']);
 
         return redirect('/list');
     }
