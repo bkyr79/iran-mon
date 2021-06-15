@@ -55,7 +55,8 @@ class ItemController extends Controller
       // バケットの`myprefix`フォルダへアップロード
       $path = Storage::disk('s3')->putFile('myprefix', $upload_image, 'public');
       // アップロードした画像のフルパスを取得
-      $item->file_path = Storage::disk('s3')->url($path);
+      // $item->file_path = Storage::disk('s3')->url($path);
+			$item->file_path = $path;
 
 			$user_id = Auth::id(); //『Auth::id()』でログイン中のidを取得できる
 			$goods_name = $request->input('goods_name');
