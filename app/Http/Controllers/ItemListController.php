@@ -25,7 +25,6 @@ class ItemListController extends Controller
         return view("item_list", [
             "images" => $uploads,
             "data_count" => $data_count,
-            "iii" => session('iii'),
         ]);
     }
 
@@ -61,12 +60,6 @@ class ItemListController extends Controller
         $del_images = $checked->where('id', '=', $request->del_checks);
         $disk = Storage::disk('s3');
         $disk->delete('/myprefix/BWpQ2ErhzEILTUCI4yPDpXDaOUqminrikAjztZfA.jpg');
-
-
-
-
-        // $del_images->file_pathが機能してない
-        session(['iii' => $del_images->file_path]);
 
         return redirect('/list');
     }
