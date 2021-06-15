@@ -56,14 +56,18 @@ class ItemListController extends Controller
         
         Item::destroy($request->del_checks);
 
-        $del_images = new Item;
-        $del_images->file_path = Item::where('id', '=', $request->del_checks);
-        $disk = Storage::disk('s3');
-        $disk->delete('/myprefix'.'/'.(string)$del_images->file_path);
+        // $del_images = new Item;
+        // $del_images->file_path = Item::where('id', '=', $request->del_checks);
+        // $disk = Storage::disk('s3');
+        // $disk->delete('/myprefix'.'/'.(string)$del_images->file_path);
         // これから試す↑
 
         // $disk->delete('/myprefix/BWpQ2ErhzEILTUCI4yPDpXDaOUqminrikAjztZfA.jpg');
 
+        $images = [$request->del_image[0], $request->del_image[1]];
+        foreach($images as $image){
+            Storage::disk('s3')->delete($image);
+        };
         return redirect('/list');
     }
 }
