@@ -64,7 +64,13 @@ class ItemListController extends Controller
 
         // $disk->delete('/myprefix/BWpQ2ErhzEILTUCI4yPDpXDaOUqminrikAjztZfA.jpg');
 
-        $images = [$request->del_image[0], $request->del_image[1]];
+        for($i=0; $i<2; $i++){
+            $images[] = $request->del_image[$i];
+        };
+        
+
+
+        // $images = [$request->del_image[0], $request->del_image[1]];
         foreach($images as $image){
             Storage::disk('s3')->delete($image);
         };
