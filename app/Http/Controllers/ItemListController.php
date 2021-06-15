@@ -60,9 +60,12 @@ class ItemListController extends Controller
         $checked = new Item;
 
         $del_images = $checked->where('id', '=', $request->del_checks);
+
+        dd($del_images);
+
         $disk = Storage::disk('s3');
         $disk->delete($request->del_checks->file_path);
-        dd($del_images);
+
 
 
 
