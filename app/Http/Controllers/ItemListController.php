@@ -64,7 +64,7 @@ class ItemListController extends Controller
 
         // $disk->delete('/myprefix/BWpQ2ErhzEILTUCI4yPDpXDaOUqminrikAjztZfA.jpg');
 
-        for($i=0; $i<2; $i++){
+        for($i=0; $i<1; $i++){
             $images[] = $request->del_image[$i];
         };
         
