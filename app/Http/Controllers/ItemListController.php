@@ -58,15 +58,18 @@ class ItemListController extends Controller
         Item::destroy($request->del_checks);
 
         $checked = new Item;
-        $del_images = $checked->where('id', '=', $request->del_checks)->get();
+
+        // 
+        $del_images = $checked->where('id', '=', $request->del_checks);
         $disk = Storage::disk('s3');
-        $disk->delete($del_images->file_path);
+        // $disk->
+        $disk->delete($request->del_checks->file_path);
 
 
 
 
         // $del_images->file_pathが機能してない
-        session(['iii' => $del_images->file_path]);
+        session(['iii' => $request->del_checks]);
 
         return redirect('/list');
     }
