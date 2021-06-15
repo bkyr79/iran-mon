@@ -58,9 +58,9 @@ class ItemListController extends Controller
         Item::destroy($request->del_checks);
 
         $checked = new Item;
-        $del_images = $checked->where('id', '=', $request->del_checks);
+        $del_images = $checked->where('id', '=', $request->del_checks)->get();
         $disk = Storage::disk('s3');
-        $disk->delete($del_images);
+        $disk->delete($del_images->file_path);
 
 
 
