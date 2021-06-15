@@ -57,7 +57,7 @@ class ItemListController extends Controller
         // Item::destroy($request->del_checks);
 
         // チェックされた写真のidを配列に入れる
-        $checked_ids = $request->del_checks;
+        $checked_ids[] = $request->del_checks;
 
         \Log::debug(print_r($checked_ids, true));
         dump($checked_ids);
