@@ -60,6 +60,7 @@ class ItemListController extends Controller
         $checked_ids[] = $request->del_checks;
 
         \Log::debug(print_r($checked_ids, true));
+        dump($checked_ids[]);
 
         // そのidのデータを全て取得し、そのidの写真のfile_pathをS3から削除する
         $disk = Storage::disk('s3');
