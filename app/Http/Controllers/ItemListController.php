@@ -54,7 +54,7 @@ class ItemListController extends Controller
 
     public function delete(Request $request){
         
-        // Item::destroy($request->del_checks);
+        Item::destroy($request->del_checks);
 
         // チェックされた写真のidを配列に入れる
         $checked_ids[] = $request->del_checks;
