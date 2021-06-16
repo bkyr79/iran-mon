@@ -68,7 +68,7 @@ class ItemListController extends Controller
         $disk = Storage::disk('s3');
         for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {
             $items = Item::find($checked_ids[$i]);
-            \Log::debug(print_r($items[0]));
+            // \Log::debug(print_r($items[0]));
             // \Log::debug(print_r(count($checked_ids, COUNT_RECURSIVE)-1));
             // dump(count($checked_ids, COUNT_RECURSIVE)-1);
             dump($items[0]);
