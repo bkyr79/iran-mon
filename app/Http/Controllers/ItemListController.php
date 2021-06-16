@@ -67,7 +67,7 @@ class ItemListController extends Controller
         // そのidのデータを全て取得し、そのidの写真のfile_pathをS3から削除する
         $disk = Storage::disk('s3');
         for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {
-            $items = Item::find($checked_ids[1]);
+            $items = Item::find($checked_ids[0][$i]);
             $disk->delete($items[0]->file_path);
 
 
