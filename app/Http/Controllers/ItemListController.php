@@ -54,7 +54,7 @@ class ItemListController extends Controller
 
     public function delete(Request $request){
         
-        Item::destroy($request->del_checks);
+        // Item::destroy($request->del_checks);
 
         // チェックされた写真のidを配列に入れる
         $checked_ids[] = $request->del_checks;
@@ -66,11 +66,11 @@ class ItemListController extends Controller
 
         // そのidのデータを全て取得し、そのidの写真のfile_pathをS3から削除する
         $disk = Storage::disk('s3');
-        for ($i=0; $i<count($checked_ids); $i++) {
+        for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE); $i++) {
             $items = Item::find($checked_ids);
             \Log::debug(print_r($items));
-            \Log::debug(print_r(count($checked_ids[])));
-            dump(count($checked_ids[]));
+            \Log::debug(print_r(count($checked_ids, COUNT_RECURSIVE)));
+            dump(count($checked_ids, COUNT_RECURSIVE));
             // dump($items);
 
             // $disk->delete($items[$i]->file_path);
