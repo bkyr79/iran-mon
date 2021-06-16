@@ -61,6 +61,8 @@ class ItemListController extends Controller
 
         \Log::debug(print_r($checked_ids, true));
         dump($checked_ids);
+        dump($checked_ids[0]);
+        // idは取れてるようです
 
         // そのidのデータを全て取得し、そのidの写真のfile_pathをS3から削除する
         $disk = Storage::disk('s3');
