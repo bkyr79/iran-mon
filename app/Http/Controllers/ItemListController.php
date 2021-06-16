@@ -80,7 +80,7 @@ class ItemListController extends Controller
 
 
 
-        $items = Item::find($checked_ids[0]);
+        $items = Item::find($checked_ids[1]);
         \Log::debug(print_r($items));
         dump($items);
 
