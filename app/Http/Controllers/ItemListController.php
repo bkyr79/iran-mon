@@ -75,16 +75,14 @@ class ItemListController extends Controller
         //     // dump($items);
         //     // dump(Item::find($checked_ids[1]));
         //     $disk->delete($items->file_path);
+        // }
+
+
 
 
         $items = Item::find($checked_ids[0]);
         \Log::debug(print_r($items));
         dump($items);
-        }
-
-
-
-
 
 
 
