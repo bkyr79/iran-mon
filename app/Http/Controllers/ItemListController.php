@@ -73,7 +73,7 @@ class ItemListController extends Controller
             \Log::debug(print_r(Item::find($checked_ids[1])));
 
             // dump($items);
-            // dump(Item::find($checked_ids[1]));
+            dump(Item::find($checked_ids[1]));
             // $disk->delete($items->file_path);
         }
 
