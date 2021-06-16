@@ -52,15 +52,18 @@ class ItemListController extends Controller
         return view("delete_list", ['images' => $images]);
     }
 
+    
+    // S3とDBのデータを削除する
     public function delete(Request $request){
         
         // チェックされた写真のidを配列に入れる
         $checked_ids[] = $request->del_checks;
 
-        // そのidのデータを全て取得し、そのidの写真のfile_pathをS3から削除する
-        $disk = Storage::disk('s3');
-        
+        // そのidのデータを全て取得し、そのidの写真のfile_pathをS3から削除する                
+        // 「チェックをいれたデータのうち先頭のデータ」を$itemsと定義する
         $items = Item::find($checked_ids[0]);
+
+        $disk = Storage::disk('s3');
 
         for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {  
             $disk->delete($items[$i]->file_path);
