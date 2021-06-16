@@ -69,10 +69,10 @@ class ItemListController extends Controller
         for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {
             $items = Item::find($checked_ids[$i]);
 
-            \Log::debug(print_r($items));
-            \Log::debug(print_r(Item::find($checked_ids[1])));
+            // \Log::debug(print_r($items));
+            // \Log::debug(print_r(Item::find($checked_ids[1])));
 
-            dump($items);
+            // dump($items);
             dump(Item::find($checked_ids[1]));
             // $disk->delete($items->file_path);
         }
