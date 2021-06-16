@@ -52,7 +52,7 @@
 
 @if($images!="")
   @section('favorite-btn')
-  <button type="submit" class="fav-btn" form="fav_btn">お気に入り登録</button>
+  <!-- <button type="submit" class="fav-btn" form="fav_btn">お気に入り登録</button> -->
   @endsection
 @endif
 
