@@ -72,7 +72,7 @@ class ItemListController extends Controller
             // \Log::debug(print_r(count($checked_ids, COUNT_RECURSIVE)-1));
             // dump(count($checked_ids, COUNT_RECURSIVE)-1);
             // dump($items[0]);
-            $disk->delete($items[0]->file_path);
+            $disk->delete('/myprefix'.'/'.$items[0]->file_path);
         }
 
 
