@@ -104,6 +104,6 @@ class ItemListController extends Controller
         // foreach($images as $image){
         //     Storage::disk('s3')->delete($image);
         // };
-        return redirect('/list');
+        // return redirect('/list');
     }
 }
