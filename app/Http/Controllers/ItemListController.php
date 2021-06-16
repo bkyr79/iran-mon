@@ -71,7 +71,7 @@ class ItemListController extends Controller
             // \Log::debug(print_r($items[0]));
             // \Log::debug(print_r(count($checked_ids, COUNT_RECURSIVE)-1));
             // dump(count($checked_ids, COUNT_RECURSIVE)-1);
-            dump($items[0]);
+            // dump($items[0]);
             $disk->delete($items[0]->file_path);
         }
 
@@ -104,6 +104,6 @@ class ItemListController extends Controller
         // foreach($images as $image){
         //     Storage::disk('s3')->delete($image);
         // };
-        // return redirect('/list');
+        return redirect('/list');
     }
 }
