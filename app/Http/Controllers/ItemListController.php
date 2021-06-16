@@ -70,7 +70,7 @@ class ItemListController extends Controller
             $items = Item::find($checked_ids[$i]);
 
             \Log::debug(print_r($items));
-            \Log::debug(print_r(Item::find($checked_ids[1]));
+            \Log::debug(print_r(Item::find($checked_ids[1])));
 
             dump($items);
             dump(Item::find($checked_ids[1]));
