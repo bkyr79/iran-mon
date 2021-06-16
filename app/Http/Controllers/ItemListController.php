@@ -68,7 +68,7 @@ class ItemListController extends Controller
         $disk = Storage::disk('s3');
         for ($i=0; $i<=count($checked_ids)-1; $i++) {
             $items = Item::find($checked_ids[$i]);
-            $disk->delete('/myprefix'.'/'.$items[$i]->file_path);
+            $disk->delete($items[$i]->file_path);
         }
 
 
