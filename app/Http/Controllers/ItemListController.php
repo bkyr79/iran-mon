@@ -54,64 +54,25 @@ class ItemListController extends Controller
 
     public function delete(Request $request){
         
-        // Item::destroy($request->del_checks);
+        // DBから削除
+        Item::destroy($request->del_checks);
 
         // チェックされた写真のidを配列に入れる
         $checked_ids[] = $request->del_checks;
 
-        // \Log::debug(print_r($checked_ids, true));
-        // dump($checked_ids);
-        // dump($checked_ids[0]);
-        // idは取れてるようです
-
         // そのidのデータを全て取得し、そのidの写真のfile_pathをS3から削除する
         $disk = Storage::disk('s3');
-        for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {
+
+        // for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {
+
             $items = Item::find($checked_ids[0]);
+
             for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {  
                 $disk->delete($items[$i]->file_path);
             }
 
-            
-            // \Log::debug(print_r($items));
-            // // \Log::debug(print_r(Item::find($checked_ids[1])));
+        // }
 
-            // dump($items);
-            // dump(Item::find($checked_ids[1]));
-        }
-
-
-
-
-        // $items = Item::find($checked_ids[0]);
-        // \Log::debug(print_r($items));
-        // dump($items);
-
-
-
-
-
-
-
-
-
-
-        // $del_images = new Item;
-        // $del_images->file_path = Item::where('id', '=', $request->del_checks);
-        // $disk = Storage::disk('s3');
-        // $disk->delete('/myprefix'.'/'.$del_images->file_path);
-        // $disk->delete('/myprefix'.'/'.(string)$del_images->file_path);
-        // これから試す↑
-
-        // $disk->delete('/myprefix/BWpQ2ErhzEILTUCI4yPDpXDaOUqminrikAjztZfA.jpg');
-
-        // for($i=0; $i<1; $i++){
-        //     $images[] = $request->del_image[$i];
-        // };
-        // // $images = [$request->del_image[0], $request->del_image[1]];
-        // foreach($images as $image){
-        //     Storage::disk('s3')->delete($image);
-        // };
-        // return redirect('/list');
+       return redirect('/list');
     }
 }
