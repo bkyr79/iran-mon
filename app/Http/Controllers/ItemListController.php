@@ -68,12 +68,11 @@ class ItemListController extends Controller
         $disk = Storage::disk('s3');
         for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {
             $items = Item::find($checked_ids[$i]);
-            \Log::debug(print_r($items));
-            \Log::debug(print_r(count($checked_ids, COUNT_RECURSIVE)-1));
-            dump(count($checked_ids, COUNT_RECURSIVE)-1);
-            // dump($items);
+            // \Log::debug(print_r($items));
+            // \Log::debug(print_r(count($checked_ids, COUNT_RECURSIVE)-1));
+            // dump(count($checked_ids, COUNT_RECURSIVE)-1);
 
-            // $disk->delete($items[$i]->file_path);
+            $disk->delete($items->file_path);
         }
 
 
@@ -105,6 +104,6 @@ class ItemListController extends Controller
         // foreach($images as $image){
         //     Storage::disk('s3')->delete($image);
         // };
-        // return redirect('/list');
+        return redirect('/list');
     }
 }
