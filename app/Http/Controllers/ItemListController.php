@@ -57,11 +57,11 @@ class ItemListController extends Controller
         // Item::destroy($request->del_checks);
 
         // チェックされた写真のidを配列に入れる
-        $checked_ids = $request->del_checks;
+        $checked_ids[] = $request->del_checks;
 
-        \Log::debug(print_r($checked_ids));
-        dump($checked_ids);
-        dump($checked_ids[0]);
+        // \Log::debug(print_r($checked_ids, true));
+        // dump($checked_ids);
+        // dump($checked_ids[0]);
         // idは取れてるようです
 
         // そのidのデータを全て取得し、そのidの写真のfile_pathをS3から削除する
