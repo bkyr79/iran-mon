@@ -59,15 +59,15 @@ class ItemListController extends Controller
         // チェックされた写真のidを配列に入れる
         $checked_ids[] = $request->del_checks;
 
-        // \Log::debug(print_r($checked_ids, true));
-        // dump($checked_ids);
-        // dump($checked_ids[0]);
+        \Log::debug(print_r($checked_ids, true));
+        dump($checked_ids);
+        dump($checked_ids[0]);
         // idは取れてるようです
 
         // そのidのデータを全て取得し、そのidの写真のfile_pathをS3から削除する
         $disk = Storage::disk('s3');
         for ($i=0; $i<=count($checked_ids)-1; $i++) {
-            $items[$i] = Item::find($checked_ids);
+            $items = Item::find($checked_ids);
             \Log::debug(print_r($items));
             dump($items);
 
