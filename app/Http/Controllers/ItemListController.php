@@ -66,11 +66,11 @@ class ItemListController extends Controller
 
         // そのidのデータを全て取得し、そのidの写真のfile_pathをS3から削除する
         $disk = Storage::disk('s3');
-        for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE); $i++) {
+        for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {
             $items = Item::find($checked_ids);
             \Log::debug(print_r($items));
-            \Log::debug(print_r(count($checked_ids, COUNT_RECURSIVE)));
-            dump(count($checked_ids, COUNT_RECURSIVE));
+            \Log::debug(print_r(count($checked_ids, COUNT_RECURSIVE)-1));
+            dump(count($checked_ids, COUNT_RECURSIVE)-1);
             // dump($items);
 
             // $disk->delete($items[$i]->file_path);
