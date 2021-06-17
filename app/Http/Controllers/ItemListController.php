@@ -63,6 +63,8 @@ class ItemListController extends Controller
         // 「チェックをいれたデータのうち先頭のデータ」を$itemsと定義する
         $items = Item::find($checked_ids[0]);
 
+        dump($items);
+
         $disk = Storage::disk('s3');
 
         for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {  
@@ -72,6 +74,6 @@ class ItemListController extends Controller
         // DBから削除
         Item::destroy($request->del_checks);
 
-       return redirect('/list');
+    //    return redirect('/list');
     }
 }
