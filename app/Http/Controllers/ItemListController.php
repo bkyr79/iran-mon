@@ -63,6 +63,7 @@ class ItemListController extends Controller
         // 「チェックをいれたデータのうち先頭のデータ」を$itemsと定義する
         $items = Item::find($checked_ids[0]);
 
+        dump($checked_ids[0]);
         dump($items);
 
         $disk = Storage::disk('s3');
