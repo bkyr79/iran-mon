@@ -67,13 +67,11 @@ class ItemListController extends Controller
 
         for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {  
             $disk->delete($items[$i]->file_path);
-
-            dump($items[$i]);
         }
 
         // DBから削除
         Item::destroy($request->del_checks);
 
-    //    return redirect('/list');
+       return redirect('/list');
     }
 }
