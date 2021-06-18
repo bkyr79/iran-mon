@@ -6,11 +6,11 @@
 #### 飽きていらなくなったものを他の人と公開しあうことで、楽しめる場をつくれるのではないかと思い作成しました
 ## 使い方の紹介
 ### マイページ
-<img width="1420" alt="スクリーンショット 2021-06-18 15 52 47" src="https://user-images.githubusercontent.com/53036816/122520853-1ba93580-d04f-11eb-9088-a654ec0444f0.png">
+<img width="1420" alt="スクリーンショット 2021-06-18 15 52 47" src="https://user-images.githubusercontent.com/53036816/122520853-1ba93580-d04f-11eb-9088-a654ec0444f0.png">  
 #### 　
-<img width="1436" alt="スクリーンショット 2021-06-18 15 45 26" src="https://user-images.githubusercontent.com/53036816/122522735-3f6d7b00-d051-11eb-91df-3b0e3e114f51.png">
+<img width="1436" alt="スクリーンショット 2021-06-18 15 45 26" src="https://user-images.githubusercontent.com/53036816/122522735-3f6d7b00-d051-11eb-91df-3b0e3e114f51.png">  
 #### 　
-<img width="1436" alt="スクリーンショット 2021-06-18 16 01 17" src="https://user-images.githubusercontent.com/53036816/122522573-15b45400-d051-11eb-9280-6c73738636ef.png">
+<img width="1436" alt="スクリーンショット 2021-06-18 16 01 17" src="https://user-images.githubusercontent.com/53036816/122522573-15b45400-d051-11eb-9280-6c73738636ef.png">  
 ####
 ## URL
 #### http://34.227.16.191
