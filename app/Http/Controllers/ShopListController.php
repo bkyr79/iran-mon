@@ -23,9 +23,9 @@ class ShopListController extends Controller
         $id_of_users = User::get('id');
         $userid_of_items = $userid_of_items->toArray();
         $id_of_users = $id_of_users->toArray();
-        $intersect[] = array_intersect($id_of_users, $userid_of_items);
+        // array_intersect($id_of_users, $userid_of_items);
 
-dd($intersect);
+dd(array_intersect($id_of_users, $userid_of_items));
 
         return view("shop_list", [
             "shop_owner_id" => $shop_owner_id,
