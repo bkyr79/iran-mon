@@ -23,8 +23,8 @@ class ShopListController extends Controller
         $userid_of_items = $userid_of_items->toArray();
         $id_of_users = $id_of_users->toArray();
 
-        dd($userid_of_items);
-        dd($id_of_users);
+        dump($userid_of_items);
+        dump($id_of_users);
 
         // return view("shop_list", [
         //     "shop_owner_id" => $shop_owner_id,
