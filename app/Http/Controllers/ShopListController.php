@@ -29,7 +29,7 @@ class ShopListController extends Controller
 
         // $whether_has_items = $users->whereIn('id', $userid_of_items)->get();
 
-dump($$userid_of_items);
+dump($userid_of_items);
 // echo $userid_of_items;
 // dump($id_of_users);
 die;
