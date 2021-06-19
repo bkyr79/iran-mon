@@ -39,10 +39,10 @@ class ShopListController extends Controller
 
 
 
-dump($whether_has_items);
+// dump($whether_has_items);
 // echo $userid_of_items;
 // dump($id_of_users);
-die;
+// die;
 
         return view("shop_list", [
             "shop_owner_id" => $shop_owner_id,

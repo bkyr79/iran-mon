@@ -35,7 +35,7 @@
   <hr class="sepa-border"/>
   <div class="shoplist-content">
 
-<!-- @if($) -->
+@if($whether_has_items)
   @foreach($shop_owner_id as $one_id)
       <form action="/shop" method="post">
       @csrf
@@ -46,7 +46,7 @@
       @endif
       </form>
   @endforeach
-<!-- @endif -->
+@endif
 
   </div>
 @endsection
