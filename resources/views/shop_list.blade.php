@@ -35,7 +35,7 @@
   <hr class="sepa-border"/>
   <div class="shoplist-content">
 
-<!-- @if($intersect = true) -->
+<!-- @if($data_count != 0) -->
   @foreach($shop_owner_id as $one_id)
       <form action="/shop" method="post">
       @csrf
