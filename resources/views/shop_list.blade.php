@@ -35,18 +35,18 @@
   <hr class="sepa-border"/>
   <div class="shoplist-content">
 
-@if($whether_has_items)
+<!-- @if($whether_has_items) -->
   @foreach($shop_owner_id as $one_id)
       <form action="/shop" method="post">
       @csrf
-      @if($one_id->id <> Auth::user()->id )
+      @if($one_id->id <> Auth::user()->id && $one_id->id === $whether_has_items)
       <input type="submit" class="shop-name" value="{{ $one_id->name }}さんのショップ">
       <input type="hidden" name="owner_id" value="{{ $one_id->id }}">
       <input type="hidden" name="owner_name" value="{{ $one_id->name }}">
       @endif
       </form>
   @endforeach
-@endif
+<!-- @endif -->
 
   </div>
 @endsection
