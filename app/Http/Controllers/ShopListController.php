@@ -22,7 +22,7 @@ class ShopListController extends Controller
         $userid_of_items = Item::distinct()->get('user_id');
         $id_of_users = User::whereIn('id', [2, 6]);
         $userid_of_items = $userid_of_items->toArray();
-        $id_of_users = $id_of_users->toArray();
+        // $id_of_users = $id_of_users->toArray();
         // $intersect = count(array_intersect($id_of_users, $userid_of_items));
 
 dump($userid_of_items);
