@@ -16,14 +16,16 @@ class ShopListController extends Controller
     }
 
     function index(){
-        $shop_owner_id = DB::table('users')->get();
+        $userid_of_items = Item::distinct()->get('user_id')->toArray();
+
+        $shop_owner_id = DB::table('users')->whereIn('id', $userid_of_items)->get();
 
         // 変数定義(ショップリスト表示を、アイテム所有のショップのみするため)
         $users = DB::table('users');
         // $userid_of_items = Item::distinct()->get('user_id')->implode('user_id', ', ');
         // $userid_of_items = '[' . $userid_of_items . ']';
 
-        $userid_of_items = Item::distinct()->get('user_id')->toArray();
+
 
 
         // foreach($userid_of_items as $one){
@@ -36,7 +38,6 @@ class ShopListController extends Controller
 
         $whether_has_items = $users->whereIn('id', $userid_of_items)->get('id')->toArray();
 
-        $key = in_array($shop_owner_id->id, $whether_has_items);
 
 
 // dump($whether_has_items);
@@ -46,9 +47,8 @@ class ShopListController extends Controller
 
         return view("shop_list", [
             "shop_owner_id" => $shop_owner_id,
-            "userid_of_items" => $userid_of_items,
-            "whether_has_items" => $whether_has_items,
-            "key" => $key,
+            // "userid_of_items" => $userid_of_items,
+            // "whether_has_items" => $whether_has_items,
         ]);    
     }
 }
