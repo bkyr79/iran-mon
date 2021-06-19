@@ -25,15 +25,7 @@ class ShopListController extends Controller
         $id_of_users = $id_of_users->toArray();
         // $intersect = count(array_intersect($id_of_users, $userid_of_items));
 
-// print_r($userid_of_items);
-print_r(str_replace('Array', '', $$userid_of_items), string);
-
-// $str = 'abcde';
-// $str = str_replace('Array', '', $$userid_of_items);
-// echo $str; // -> cde
-
-
-
+dd($userid_of_items);
 
         // return view("shop_list", [
         //     "shop_owner_id" => $shop_owner_id,
