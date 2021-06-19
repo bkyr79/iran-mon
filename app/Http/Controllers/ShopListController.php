@@ -36,18 +36,19 @@ class ShopListController extends Controller
 
         $whether_has_items = $users->whereIn('id', $userid_of_items)->get('id')->toArray();
 
+        $key = in_array($shop_owner_id->id, $whether_has_items);
 
 
-
-dump($whether_has_items);
+// dump($whether_has_items);
 // echo $userid_of_items;
 // dump($id_of_users);
-die;
+// die;
 
         return view("shop_list", [
             "shop_owner_id" => $shop_owner_id,
             "userid_of_items" => $userid_of_items,
             "whether_has_items" => $whether_has_items,
+            "key" => $key,
         ]);    
     }
 }
