@@ -39,7 +39,7 @@ class ShopListController extends Controller
 
 
 
-dump($users_own_items);
+dump($userid_of_items);
 // echo $userid_of_items;
 // dump($id_of_users);
 die;
