@@ -18,18 +18,16 @@ class ShopListController extends Controller
     function index(){
         $shop_owner_id = DB::table('users')->get();
 
+        // 変数定義(ショップリスト表示を、アイテム所有のショップのみするため)
         $userid_of_items = Item::get('user_id');
         $id_of_users = User::get('id');
-        // $userid_of_items = $userid_of_items->toArray();
-        // $id_of_users = $id_of_users->toArray();
+        $userid_of_items = $userid_of_items->toArray();
+        $id_of_users = $id_of_users->toArray();
 
-        dump($userid_of_items);
-        dump($id_of_users);
-
-        // return view("shop_list", [
-        //     "shop_owner_id" => $shop_owner_id,
-        //     "userid_of_items" => $userid_of_items,
-        //     "id_of_users" => $id_of_users,
-        // ]);    
+        return view("shop_list", [
+            "shop_owner_id" => $shop_owner_id,
+            "userid_of_items" => $userid_of_items,
+            "id_of_users" => $id_of_users,
+        ]);    
     }
 }
