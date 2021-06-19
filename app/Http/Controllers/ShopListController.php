@@ -23,23 +23,23 @@ class ShopListController extends Controller
         // $userid_of_items = Item::distinct()->get('user_id')->implode('user_id', ', ');
         // $userid_of_items = '[' . $userid_of_items . ']';
 
-        $userid_of_items = Item::distinct()->get('user_id');
+        $userid_of_items = Item::distinct()->get('user_id')->toArray();
 
 
-        foreach($userid_of_items as $one){
-            $users_own_items[] = $users->where('id', $one)->get();
-        }
+        // foreach($userid_of_items as $one){
+        //     $users_own_items[] = $users->where('id', $one)->get();
+        // }
         // $id_of_users = User::get('id')->implode('id', ', ');
 
         // $hukumukadouka = in_array($userid_of_items[$i], $id_of_users, true);
 
 
-        // $whether_has_items = $users->whereIn('id', $userid_of_items)->get();
+        $whether_has_items = $users->whereIn('id', $userid_of_items)->get();
 
 
 
 
-dump($users_own_items[]);
+dump($whether_has_items);
 // echo $userid_of_items;
 // dump($id_of_users);
 die;
