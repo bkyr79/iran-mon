@@ -26,7 +26,7 @@ class ShopListController extends Controller
         // $intersect = count(array_intersect($id_of_users, $userid_of_items));
 
 // print_r($userid_of_items);
-print_r(str_replace('Array', '', $$userid_of_items));
+print_r(str_replace('Array', '', $$userid_of_items), string);
 
 // $str = 'abcde';
 // $str = str_replace('Array', '', $$userid_of_items);
