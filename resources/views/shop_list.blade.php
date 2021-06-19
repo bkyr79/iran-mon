@@ -34,7 +34,6 @@
 
   <hr class="sepa-border"/>
   <div class="shoplist-content">
-
   @foreach($shop_owner_id as $one_id)
       <form action="/shop" method="post">
       @csrf

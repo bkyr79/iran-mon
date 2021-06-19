@@ -20,35 +20,8 @@ class ShopListController extends Controller
 
         $shop_owner_id = DB::table('users')->whereIn('id', $userid_of_items)->get();
 
-        // 変数定義(ショップリスト表示を、アイテム所有のショップのみするため)
-        $users = DB::table('users');
-        // $userid_of_items = Item::distinct()->get('user_id')->implode('user_id', ', ');
-        // $userid_of_items = '[' . $userid_of_items . ']';
-
-
-
-
-        // foreach($userid_of_items as $one){
-        //     $users_own_items[] = $users->where('id', $one)->get();
-        // }
-        // $id_of_users = User::get('id')->implode('id', ', ');
-
-        // $hukumukadouka = in_array($userid_of_items[$i], $id_of_users, true);
-
-
-        $whether_has_items = $users->whereIn('id', $userid_of_items)->get('id')->toArray();
-
-
-
-// dump($whether_has_items);
-// echo $userid_of_items;
-// dump($id_of_users);
-// die;
-
         return view("shop_list", [
             "shop_owner_id" => $shop_owner_id,
-            // "userid_of_items" => $userid_of_items,
-            // "whether_has_items" => $whether_has_items,
         ]);    
     }
 }
