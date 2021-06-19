@@ -35,7 +35,9 @@
   <hr class="sepa-border"/>
   <div class="shoplist-content">
 
-@if($intersect = true)
+  {{ $userid_of_items }}
+  {{ $id_of_users }}
+<!-- @if($intersect = true) -->
   @foreach($shop_owner_id as $one_id)
       <form action="/shop" method="post">
       @csrf
@@ -46,7 +48,7 @@
       @endif
       </form>
   @endforeach
-@endif
+<!-- @endif -->
 
   </div>
 @endsection
