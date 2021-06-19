@@ -26,9 +26,10 @@ class ShopListController extends Controller
         // $hukumukadouka = in_array($userid_of_items[$i], $id_of_users, true);
 
 
-        $whether_has_items = $users->whereIn('id', $userid_of_items)->get();
+        // $whether_has_items = $users->whereIn('id', $userid_of_items)->get();
 
-dump($whether_has_items);
+// dump($whether_has_items);
+echo $userid_of_items;
 // dump($id_of_users);
 die;
 
