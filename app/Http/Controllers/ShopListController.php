@@ -18,19 +18,14 @@ class ShopListController extends Controller
     function index(){
         $shop_owner_id = DB::table('users')->get();
 
-        $data_count = Item::get()->count();
-
-
         // 変数定義(ショップリスト表示を、アイテム所有のショップのみするため)
         $userid_of_items = Item::distinct()->get('user_id');
-        $id_of_users = User::get()->whereIn('id', [2, 6]);
-        $userid_of_items = $userid_of_items->toArray();
-        // $id_of_users = $id_of_users->toArray();
-        // $intersect = count(array_intersect($id_of_users, $userid_of_items));
+        $id_of_users = User::get('id');
+        $userid_of_items = $userid_of_items->toArray()->implode('user_id', ', ');
+        $id_of_users = $id_of_users->toArray()->implode('id', ', ');
 
-// dump($userid_of_items);
-// dump($id_of_users);
-dump($data_count);
+dump($userid_of_items);
+dump($id_of_users);
 die;
 
         // return view("shop_list", [
