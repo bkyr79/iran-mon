@@ -19,10 +19,10 @@ class ShopListController extends Controller
         $shop_owner_id = DB::table('users')->get();
 
         // 変数定義(ショップリスト表示を、アイテム所有のショップのみするため)
-        $userid_of_items = Item::distinct()->get('user_id');
-        $id_of_users = User::get('id');
-        $userid_of_items = $userid_of_items->toArray()->implode('user_id', ', ');
-        $id_of_users = $id_of_users->toArray()->implode('id', ', ');
+        $userid_of_items = Item::distinct()->get('user_id')->implode('user_id', ', ');
+        $id_of_users = User::get('id')->implode('id', ', ');
+        // $userid_of_items = $userid_of_items->toArray()->implode('user_id', ', ');
+        // $id_of_users = $id_of_users->toArray()->implode('id', ', ');
 
 dump($userid_of_items);
 dump($id_of_users);
