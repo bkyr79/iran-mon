@@ -21,8 +21,8 @@ class ShopListController extends Controller
         // 変数定義(ショップリスト表示を、アイテム所有のショップのみするため)
         $userid_of_items = Item::get('user_id');
         $id_of_users = User::get('id');
-        // $userid_of_items = $userid_of_items->toArray();
-        // $id_of_users = $id_of_users->toArray();
+        $userid_of_items = $userid_of_items->toArray();
+        $id_of_users = $id_of_users->toArray();
         $intersect = count(array_intersect($id_of_users, $userid_of_items));
 
 dd($intersect);
