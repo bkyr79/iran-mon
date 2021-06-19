@@ -26,10 +26,10 @@ class ShopListController extends Controller
         dd($userid_of_items);
         dd($id_of_users);
 
-        return view("shop_list", [
-            "shop_owner_id" => $shop_owner_id,
-            "userid_of_items" => $userid_of_items,
-            "id_of_users" => $id_of_users,
-        ]);    
+        // return view("shop_list", [
+        //     "shop_owner_id" => $shop_owner_id,
+        //     "userid_of_items" => $userid_of_items,
+        //     "id_of_users" => $id_of_users,
+        // ]);    
     }
 }
