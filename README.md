@@ -11,10 +11,8 @@
   
 ### ショップページ
 <img width="1436" alt="スクリーンショット 2021-06-18 15 45 26" src="https://user-images.githubusercontent.com/53036816/122522735-3f6d7b00-d051-11eb-91df-3b0e3e114f51.png">
-説明~  
-  
-  
-  
+他の人のショップから写真を購入できます。購入した写真はマイページに登録されます。 
+   
 ### ショップリストページ
 <img width="1436" alt="スクリーンショット 2021-06-18 16 01 17" src="https://user-images.githubusercontent.com/53036816/122522573-15b45400-d051-11eb-9280-6c73738636ef.png">
 説明~  
