@@ -13,26 +13,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
         <link href="{{ asset('/css/welcome.css') }}" rel="stylesheet" type="text/css">
-
-        <!-- ダイアログ表示の実装 -->
-        <script>
-            $(function easyLoginDialog() {
-            $( "#dialog-confirm" ).dialog({
-                modal: true,
-                buttons: {
-                "はい": function() {
-                    $( this ).dialog( "close" );
-                },
-                "いいえ": function() {
-                    $( this ).dialog( "close" );
-                }
-                }
-            });
-            });
-            
-            let button = document.getElementById('easyLogin');
-            button.addEventListener('click', easyLoginDialog);
-        </script>
     </head>
     <body>
         <div id="dialog-confirm" title="">
@@ -70,5 +50,24 @@
                 </div>
             </div>
         </div>
+        <!-- ダイアログ表示の実装 -->
+        <script>
+            $(function easyLoginDialog() {
+            $( "#dialog-confirm" ).dialog({
+                modal: true,
+                buttons: {
+                "はい": function() {
+                    $( this ).dialog( "close" );
+                },
+                "いいえ": function() {
+                    $( this ).dialog( "close" );
+                }
+                }
+            });
+            });
+            
+            let button = document.getElementById('easyLogin');
+            button.addEventListener('click', easyLoginDialog);
+        </script>
     </body>
 </html>
