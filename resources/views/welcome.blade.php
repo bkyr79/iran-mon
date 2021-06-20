@@ -24,9 +24,6 @@
             color: #ffffff;
             background: green;
         }
-        .ui-dialog-content {
-            color: orange;
-        }
         </style>
     </head>
     <body>
