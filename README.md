@@ -22,11 +22,12 @@
 ## URL
 #### http://34.227.16.191
 ## 使用技術
-#### HTML/CSS
 #### Laravel 6.20
 #### PHP 7.3
 #### JavaScript
 #### jQuery
+#### HTML/CSS
+#### Bootstrap
 #### MySQL 5.7
 #### Stripe
 ## インフラ
