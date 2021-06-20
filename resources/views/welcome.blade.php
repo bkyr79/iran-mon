@@ -5,15 +5,39 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>ira-mon</title>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+        <script src="http://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
         <link href="{{ asset('/css/welcome.css') }}" rel="stylesheet" type="text/css">
 
-        <!-- Styles -->
+        <!-- ダイアログ表示の実装 -->
+        <script>
+            $(function() {
+            $( "#dialog-confirm" ).dialog({
+                modal: true,
+                buttons: {
+                "はい": function() {
+                    $( this ).dialog( "close" );
+                },
+                "いいえ": function() {
+                    $( this ).dialog( "close" );
+                }
+                }
+            });
+            });
+        </script>
     </head>
     <body>
+        <div id="dialog-confirm" title="">
+        <p>
+        <span class="ui-icon ui-icon-alert"></span>
+        再ログインできませんが、よろしいですか？
+        </p>
+        </div>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
