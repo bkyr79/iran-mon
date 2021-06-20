@@ -25,12 +25,15 @@
 #### HTML/CSS
 #### Laravel 6.20
 #### PHP 7.3
+#### JavaScript
+#### jQuery
 #### MySQL 5.7
+#### Stripe
 ## インフラ
 #### AWS
 #### ・EC2
+#### ・IAM
 #### ・RDS
 #### ・S3
-#### 
-#### 
 ## 機能一覧
+#### 
