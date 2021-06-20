@@ -16,7 +16,7 @@
 
         <!-- ダイアログ表示の実装 -->
         <script>
-            $(function() {
+            $(function easyLoginDialog() {
             $( "#dialog-confirm" ).dialog({
                 modal: true,
                 buttons: {
@@ -29,6 +29,9 @@
                 }
             });
             });
+            
+            let button = document.getElementById('easyLogin');
+            button.addEventListener('click', easyLoginDialog);
         </script>
     </head>
     <body>
@@ -45,7 +48,7 @@
                         <a href="{{ url('/list') }}">My page</a>
                     @else
                         <form action="{{ url('guest_login') }}">
-                        <input type="submit" value="簡単LOGIN" class="easy-login">
+                        <input type="submit" value="簡単LOGIN" class="easy-login" id="easyLogin">
                         </form>
 
                         <a href="{{ route('login') }}" class="login">Login</a>
