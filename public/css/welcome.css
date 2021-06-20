@@ -77,10 +77,3 @@ html, body {
   float: left;
   margin: 0 7px 20px 0;
 }
-.ui-dialog-titlebar {
-  color: #ffffff;
-  background: green;
-}
-.ui-dialog-content {
-  color: orange;
-}

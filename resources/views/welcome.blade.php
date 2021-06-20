@@ -13,6 +13,16 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
         <link href="{{ asset('/css/welcome.css') }}" rel="stylesheet" type="text/css">
+        
+        <style>
+        .ui-dialog-titlebar {
+            color: #ffffff;
+            background: green;
+        }
+        .ui-dialog-content {
+            color: orange;
+        }
+        </style>
     </head>
     <body>
         <div id="dialog-confirm" title="">
