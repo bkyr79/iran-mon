@@ -13,8 +13,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
         <link href="{{ asset('/css/welcome.css') }}" rel="stylesheet" type="text/css">
-        
+
         <style>
+        /* ダイアログ */
+        .ui-icon ui-icon-alert {
+            float: left;
+            margin: 0 7px 20px 0;
+        }
         .ui-dialog-titlebar {
             color: #ffffff;
             background: green;

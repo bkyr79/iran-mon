@@ -71,9 +71,3 @@ html, body {
   position: relative;
   bottom: 22px;                
 }
-
-/* ダイアログ */
-.ui-icon ui-icon-alert {
-  float: left;
-  margin: 0 7px 20px 0;
-}
