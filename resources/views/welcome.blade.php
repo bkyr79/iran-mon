@@ -60,7 +60,7 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">いいえ</button>
                         <form action="{{ url('guest_login') }}">
                         @csrf
-                        <input type="submit" name="easy" value="はい" id="easybtn">
+                        <button type="submit" class="btn btn-success" id="easybtn" name="easy">はい</button>
                         </form>
                     </div>
                 </div>
