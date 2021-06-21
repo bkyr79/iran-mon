@@ -40,9 +40,7 @@
                         <a href="{{ url('/list') }}">My page</a>
                     @else
                         <form action="{{ url('guest_login') }}">
-                        <!-- <input type="submit" value="簡単LOGIN" class="easy-login" id="easyLogin"> -->
-                        <!-- <button type="submit" class="easy-login" id="easyLogin"></button> -->
-                        <input type="button" value="簡単LOGIN" id="easyLogin">
+                        <button type="submit" class="easy-login" id="easyLogin"></button>
                         </form>
 
                         <a href="{{ route('login') }}" class="login">Login</a>
@@ -66,22 +64,22 @@
         </div>
         <!-- ダイアログ表示の実装 -->
         <script>
-            $(function easyLoginDialog() {
-            $( "#dialog-confirm" ).dialog({
-                modal: true,
-                buttons: {
-                "はい": function() {
-                    $( this ).dialog( "close" );
-                },
-                "いいえ": function() {
-                    $( this ).dialog( "close" );
-                }
-                }
-            });
-            });
+            // $(function easyLoginDialog() {
+            // $( "#dialog-confirm" ).dialog({
+            //     modal: true,
+            //     buttons: {
+            //     "はい": function() {
+            //         $( this ).dialog( "close" );
+            //     },
+            //     "いいえ": function() {
+            //         $( this ).dialog( "close" );
+            //     }
+            //     }
+            // });
+            // });
             
-            let button = document.getElementById('easyLogin');
-            button.addEventListener('click', easyLoginDialog);
+            // let button = document.getElementById('easyLogin');
+            // button.addEventListener('click', easyLoginDialog);
         </script>
     </body>
 </html>
