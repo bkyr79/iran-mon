@@ -22,7 +22,7 @@
                         <!-- <form action="{{ url('guest_login') }}">
                         <input type="submit" value="簡単LOGIN">
                         </form> -->
-                        <button type="button" class="" name="easy" data-toggle="modal" data-target="#easy-login">簡単ログイン</button>
+                        <button type="button" class="easy-confirm" name="easy" data-toggle="modal" data-target="#easy-login">簡単ログイン</button>
 
                         <div><a href="{{ route('login') }}" class="login">Login</a></div>
 
@@ -60,7 +60,7 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">いいえ</button>
                         <form action="{{ url('guest_login') }}">
                         @csrf
-                        <input type="submit" name="easy" value="はい">
+                        <input type="submit" name="easy" value="はい" id="easybtn">
                         </form>
                     </div>
                 </div>
@@ -69,8 +69,8 @@
 
         <script>
         // 確認画面で「はい」クリックしたら、buy-confirmクラス属性の値が渡される
-        $('.buy-confirm').click(function(){
-            $('#buybtn').val( $(this).val() );
+        $('.easy-confirm').click(function(){
+            $('#easybtn').val( $(this).val() );
         });
         </script>
     </body>
