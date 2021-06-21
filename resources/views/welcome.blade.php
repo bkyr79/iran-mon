@@ -68,10 +68,10 @@
         </div>
 
         <script>
-        // // 確認画面で「はい」クリックしたら、buy-confirmクラス属性の値が渡される
-        // $('.buy-confirm').click(function(){
-        //     $('#buybtn').val( $(this).val() );
-        // });
+        // 確認画面で「はい」クリックしたら、buy-confirmクラス属性の値が渡される
+        $('.buy-confirm').click(function(){
+            $('#buybtn').val( $(this).val() );
+        });
         </script>
     </body>
 </html>
