@@ -17098,7 +17098,7 @@ body {
 .signupPage .header {
   padding: 20px;
   text-align: center;
-  background: #fd5068;
+  background: #28a745;
   color: #fff;
 }
 
@@ -17107,7 +17107,7 @@ body {
   margin: 0 auto 10px auto;
   width: 100px;
   height: 100px;
-  background: #f85a6f;
+  background: #28a745;
   display: flex;
   cursor: pointer;
   align-items: center;
@@ -17164,7 +17164,7 @@ body {
 }
 
 .signupPage .submitBtn {
-  background: #fd5068;
+  background: #28a745;
   color: #fff;
   width: 200px;
   padding: 10px;
@@ -17177,7 +17177,7 @@ body {
 }
 
 .signupPage .errorMessage {
-  color: #fd5068;
+  color: #28a745;
 }
 
 .linkToLogin {
@@ -17186,7 +17186,7 @@ body {
 }
 
 .linkToLogin > a {
-  color: #fd5068;
+  color: #28a745;
 }
 
 .signinPage {
