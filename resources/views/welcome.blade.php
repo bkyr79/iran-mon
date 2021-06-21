@@ -27,12 +27,12 @@
         </style>
     </head>
     <body>
-        <div id="dialog-confirm" title="">
+        <!-- <div id="dialog-confirm" title="">
         <p>
         <span class="ui-icon ui-icon-alert"></span>
         再ログインできませんが、よろしいですか？
         </p>
-        </div>
+        </div> -->
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
