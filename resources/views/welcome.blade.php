@@ -22,9 +22,9 @@
                         <!-- <form action="{{ url('guest_login') }}">
                         <input type="submit" value="簡単LOGIN">
                         </form> -->
-                        <button type="button" class="" data-toggle="modal" data-target="#easy-login" style="display: inline;">簡単ログイン</button>
+                        <button type="button" class="" data-toggle="modal" data-target="#easy-login">簡単ログイン</button>
 
-                        <a href="{{ route('login') }}" class="login">Login</a>
+                        <div><a href="{{ route('login') }}" class="login">Login</a></div>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="register">Register</a>
