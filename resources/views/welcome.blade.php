@@ -11,8 +11,6 @@
 
         <link href="{{ asset('/css/welcome.css') }}" rel="stylesheet" type="text/css">
 
-        <!-- Bootstrap導入 -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <!-- Bootstrap Javascript(jQuery含む) -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -25,9 +23,6 @@
                     @auth
                         <a href="{{ url('/list') }}">My page</a>
                     @else
-                        <!-- <form action="{{ url('guest_login') }}">
-                        <input type="submit" value="簡単LOGIN">
-                        </form> -->
                         <button type="button" class="easy-confirm" name="easy" data-toggle="modal" data-target="#easy-login">簡単ログイン</button>
 
                         <div><a href="{{ route('login') }}" class="login">Login</a></div>
@@ -74,7 +69,6 @@
         </div>
 
         <script>
-        // 確認画面で「はい」クリックしたら、buy-confirmクラス属性の値が渡される
         $('.easy-confirm').click(function(){
             $('#easybtn').val( $(this).val() );
         });
