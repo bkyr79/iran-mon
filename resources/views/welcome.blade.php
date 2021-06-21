@@ -41,7 +41,8 @@
                     @else
                         <form action="{{ url('guest_login') }}">
                         <!-- <input type="submit" value="簡単LOGIN" class="easy-login" id="easyLogin"> -->
-                        <button type="submit" class="easy-login" id="easyLogin">簡単LOGIN</button>
+                        <!-- <button type="submit" class="easy-login" id="easyLogin"></button> -->
+                        <input type="button" value="簡単LOGIN" id="easyLogin">
                         </form>
 
                         <a href="{{ route('login') }}" class="login">Login</a>
