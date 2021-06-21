@@ -19,9 +19,10 @@
                     @auth
                         <a href="{{ url('/list') }}">My page</a>
                     @else
-                        <form action="{{ url('guest_login') }}">
-                        <input type="submit" value="簡単LOGIN" class="easy-login">
-                        </form>
+                        <!-- <form action="{{ url('guest_login') }}">
+                        <input type="submit" value="簡単LOGIN">
+                        </form> -->
+                        <button type="button" class="" data-toggle="modal" data-target="#easy-login">簡単ログイン</button>
 
                         <a href="{{ route('login') }}" class="login">Login</a>
 
@@ -42,5 +43,35 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="easy-login" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        再ログインできませんが、よろしいですか？
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">いいえ</button>
+                        <form action="{{ url('guest_login') }}">
+                        @csrf
+                        <input type="submit" value="はい">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        // // 確認画面で「はい」クリックしたら、buy-confirmクラス属性の値が渡される
+        // $('.buy-confirm').click(function(){
+        //     $('#buybtn').val( $(this).val() );
+        // });
+        </script>
     </body>
 </html>
