@@ -40,7 +40,7 @@
                         <a href="{{ url('/list') }}">My page</a>
                     @else
                         <form action="{{ url('guest_login') }}">
-                        <button type="submit" class="easy-login" id="easyLogin"></button>
+                        <button type="submit" class="easy-login" id="easyLogin">簡単ログイン</button>
                         </form>
 
                         <a href="{{ route('login') }}" class="login">Login</a>
