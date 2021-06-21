@@ -26,9 +26,9 @@
                     @auth
                         <a href="{{ url('/list') }}">My page</a>
                     @else
-                        <button type="button" class="easy-confirm" name="easy" data-toggle="modal" data-target="#easy-login">簡単ログイン</button>
+                        <button type="button" class="easy-login" name="easy" data-toggle="modal" data-target="#easyLogin">簡単ログイン</button>
 
-                        <div><a href="{{ route('login') }}" class="login">Login</a></div>
+                        <a href="{{ route('login') }}" class="login">Login</a>
 
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="register">Register</a>
@@ -48,7 +48,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="easy-login" tabindex="-1" role="dialog">
+        <div class="modal fade" id="easyLogin" tabindex="-1" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -72,7 +72,7 @@
         </div>
 
         <script>
-        $('.easy-confirm').click(function(){
+        $('.easy-login').click(function(){
             $('#easybtn').val( $(this).val() );
         });
         </script>
