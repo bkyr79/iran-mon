@@ -17098,7 +17098,7 @@ body {
 .signupPage .header {
   padding: 20px;
   text-align: center;
-  background: #28a745;
+  background: #fd5068;
   color: #fff;
 }
 
@@ -17164,7 +17164,7 @@ body {
 }
 
 .signupPage .submitBtn {
-  background: #28a745;
+  background: #fd5068;
   color: #fff;
   width: 200px;
   padding: 10px;
@@ -17186,7 +17186,7 @@ body {
 }
 
 .linkToLogin > a {
-  color: #28a745;
+  color: #fd5068;
 }
 
 .signinPage {
@@ -17194,7 +17194,7 @@ body {
 }
 
 .signinPage .title {
-  color: #28a745;
+  color: #fd5068;
   margin: 20px 0;
   text-align: center;
 }
@@ -17204,7 +17204,7 @@ body {
   height: 120px;
   border-radius: 50%;
   margin: 0 auto;
-  background: #28a745;
+  background: #fd5068;
   color: #fff;
   display: flex;
   align-items: center;
@@ -17215,7 +17215,7 @@ body {
   padding: 12px;
   width: 200px;
   border-radius: 21px;
-  background: #28a745;
+  background: #fd5068;
   color: #fff;
   text-align: center;
   border: none;
