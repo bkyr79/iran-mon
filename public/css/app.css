@@ -17107,7 +17107,7 @@ body {
   margin: 0 auto 10px auto;
   width: 100px;
   height: 100px;
-  background: #f85a6f;
+  background: #28a745;
   display: flex;
   cursor: pointer;
   align-items: center;
@@ -17177,7 +17177,7 @@ body {
 }
 
 .signupPage .errorMessage {
-  color: #fd5068;
+  color: #28a745;
 }
 
 .linkToLogin {
@@ -17230,6 +17230,6 @@ body {
 }
 
 .signinPage .errorMessage {
-  color: #fd5068;
+  color: #28a745;
 }
 
