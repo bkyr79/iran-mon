@@ -50,16 +50,16 @@
   </div>
 @endsection
 
-@if($images!="")
+@if($data_count != 0)
   @section('favorite-btn')
-  <!-- <button type="submit" class="fav-btn" form="fav_btn">お気に入り登録</button> -->
+  <button type="submit" class="fav-btn" form="fav_btn">お気に入り登録</button>
   @endsection
 @endif
 
 @section('content')
   <div class="image-list">
   @foreach($images as $image)
-  <div type="button" class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete">
+  <div type="button" class="delete-confirm btn-f fav-btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete">
     <form action="/itemlist" name="sampleform" method="post" onsubmit="return func1()">
     @csrf
     <button type="submit" class="image-btn">
