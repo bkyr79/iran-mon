@@ -22,7 +22,7 @@
                         <!-- <form action="{{ url('guest_login') }}">
                         <input type="submit" value="簡単LOGIN">
                         </form> -->
-                        <button type="button" class="" data-toggle="modal" data-target="#easy-login">簡単ログイン</button>
+                        <button type="button" class="" name="easy" data-toggle="modal" data-target="#easy-login">簡単ログイン</button>
 
                         <div><a href="{{ route('login') }}" class="login">Login</a></div>
 
@@ -60,7 +60,7 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">いいえ</button>
                         <form action="{{ url('guest_login') }}">
                         @csrf
-                        <input type="submit" value="はい">
+                        <input type="submit" name="easy" value="はい">
                         </form>
                     </div>
                 </div>
