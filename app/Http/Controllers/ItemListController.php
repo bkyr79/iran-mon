@@ -21,10 +21,13 @@ class ItemListController extends Controller
         //where句で条件指定することで、ログインユーザーの商品のみを表示させる
         $uploads = Item::orderByRaw("updated_at desc, created_at desc, id desc")->where('user_id', '=', Auth::id())->paginate(12);
         $data_count = Item::where('user_id', '=', Auth::id())->count();
-
+        $item = new Item;
+        $item_fav = $item->favorite;
+        
         return view("item_list", [
             "images" => $uploads,
             "data_count" => $data_count,
+            "fav_sign" => $item_fav,
         ]);
     }
 
@@ -73,5 +76,36 @@ class ItemListController extends Controller
         Item::destroy($request->del_checks);
 
        return redirect('/list');
+    }
+
+    // お気に入り選択画面を表示させる
+    public function favoriteSelect(){
+        $images = Item::orderByRaw("updated_at desc, created_at desc, id desc")->where('user_id', '=', Auth::id())->paginate(12);
+        return view("favorite_select", ['images' => $images]);
+    }
+
+    // checkした写真をお気に入り登録する
+    public function favoriteDecided(Request $request){
+        
+        $checked_ids[] = $request->fav_checks;
+
+        $checked_items = Item::find($checked_ids[0]);
+
+
+        // dd($checked_items);
+
+        for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {  
+            // $item = new Item;
+            $checked_items[$i]->update(['favorite' => 2]);
+        }
+
+        // dump($checked_items[0]);
+        // dump($checked_items[1]);
+        // die;
+
+        // favoriteカラムの型をintに変更する
+        // たぶん、favoriteカラムのみ削除し、新たにint型favoriteカラムを追加する
+
+        return redirect('/list');
     }
 }

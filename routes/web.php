@@ -27,6 +27,10 @@ Route::get('/shoplist', 'ShopListController@index');
 
 Route::get('/delete_list', 'ItemListController@deleteList')->name('delete_list');
 
+Route::get('/favorite_select', 'ItemListController@favoriteSelect')->name('favorite_select');
+
+Route::post('/favorite_decided', 'ItemListController@favoriteDecided')->name('favorite_decided');
+
 Route::post('/delete', 'ItemListController@delete');
 
 Route::post('/charge', 'ChargeController@chargeAndChangeOwnership');

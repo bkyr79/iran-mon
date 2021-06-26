@@ -52,13 +52,15 @@
 
 @if($data_count != 0)
   @section('favorite-btn')
-  <button type="submit" class="fav-btn" form="fav_btn">お気に入り登録</button>
+  <button class="fav-btn" ><a href="{{ route('favorite_select') }}">お気に入り選択</a></button>
+  <!-- <button type="submit"  form="fav_btn"></button> -->
   @endsection
 @endif
 
 @section('content')
   <div class="image-list">
   @foreach($images as $image)
+  favorite {{ $image->favorite }}
   <div type="button" class="delete-confirm btn-f fav-btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete">
     <form action="/itemlist" name="sampleform" method="post" onsubmit="return func1()">
     @csrf
@@ -72,6 +74,10 @@
       @csrf
       <input type="checkbox" class="fav-check" name="fav_checks[]" value="{{ $image->id }}" style="display:none;">
     </form>
+
+    @if($fav_sign === 1)
+    お気に入り！
+    @endif
   </div>
   @endforeach
   </div>
