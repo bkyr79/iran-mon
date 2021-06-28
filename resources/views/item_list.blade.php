@@ -60,8 +60,7 @@
 @section('content')
   <div class="image-list">
   @foreach($images as $image)
-  favorite {{ $image->favorite }}
-  <div type="button" class="delete-confirm btn-f fav-btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete">
+  <div type="button" id="favBtnSuccess" class="delete-confirm btn-f btn" value="A001" data-toggle="modal" data-target="#confirm-delete">
     <form action="/itemlist" name="sampleform" method="post" onsubmit="return func1()">
     @csrf
     <button type="submit" class="image-btn">
@@ -73,11 +72,16 @@
       @csrf
       <input type="checkbox" class="fav-check" name="fav_checks[]" value="{{ $image->id }}" style="display:none;">
     </form>
-
-    @if($fav_sign === 1)
-    お気に入り！
-    @endif
   </div>
+
+    @if($image->favorite === 1)
+      <script type="text/javascript">
+        const fav_border = document.querySelector('.btn')
+        fav_border.classList.remove('btn')
+        fav_border.classList.add('fav-btn-success')
+      </script>
+    @endif
+
   @endforeach
   </div>
 @endsection
@@ -108,4 +112,12 @@
   });
   </script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+  <script type="text/javascript">
+  function borderChange() {
+    // const fav_border = document.querySelector('.btn')
+    // fav_border.classList.remove('btn')
+    // fav_border.classList.add('fav-btn-success')
+  }
+  </script>
 @endsection
