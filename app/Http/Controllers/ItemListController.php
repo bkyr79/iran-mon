@@ -93,6 +93,7 @@ class ItemListController extends Controller
 
 
         // dd($checked_items);
+        // dd($checked_ids);
 
         for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {  
             // $item = new Item;

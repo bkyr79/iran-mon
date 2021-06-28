@@ -9,5 +9,5 @@ class Item extends Model
     protected $table = "items";
 
     //アップロードする際に必要なカラムを記載しておく
-    protected $fillable = ["name", "price", "user_id", "file_name", "file_path", "file_size"];
+    protected $fillable = ["name", "price", "user_id", "file_name", "file_path", "file_size", "transaction_room_id", "favorite"];
 }
