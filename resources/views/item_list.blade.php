@@ -61,7 +61,7 @@
 @section('content')
   <div class="image-list">
   @foreach($images as $image)
-  <div type="button" id="favBtnSuccess" class="delete-confirm btn-f btn" value="A001" data-toggle="modal" data-target="#confirm-delete">
+  <div type="button" class="delete-confirm btn-f btn" value="A001" data-toggle="modal" data-target="#confirm-delete">
     <form action="/itemlist" name="sampleform" method="post" onsubmit="return func1()">
     @csrf
     <button type="submit" class="image-btn">
@@ -114,12 +114,4 @@
   });
   </script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-  <script type="text/javascript">
-  function borderChange() {
-    // const fav_border = document.querySelector('.btn')
-    // fav_border.classList.remove('btn')
-    // fav_border.classList.add('fav-btn-success')
-  }
-  </script>
 @endsection

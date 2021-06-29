@@ -34,6 +34,7 @@
   <form action="/delete" id="delete_form" method="post">
   <div class="image-list">
   @foreach($images as $image)
+  @if($image->favorite === 0)
   <div class="delete-confirm btn btn-success" value="A001" data-toggle="modal" data-target="#confirm-delete">
     @csrf
     <input type="checkbox" name="del_checks[]" value="{{ $image->id }}">
@@ -41,6 +42,7 @@
     </div>
     <p class="goods_name"><span>{{ $image->name }}</span></p>
   </div>
+  @endif
   @endforeach
   </div>
 @endsection
