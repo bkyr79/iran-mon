@@ -77,8 +77,8 @@
 
     <!-- お気に入り登録した写真の枠線に色をつける -->
     @if($image->favorite === 1)
-      <script type="text/javascript">
-        const fav_border = document.querySelector('.btn')
+      <script type="text/javascript">        
+        fav_border = document.querySelector('.btn')
         fav_border.classList.remove('btn')
         fav_border.classList.add('fav-btn-success')
       </script>
