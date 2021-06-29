@@ -52,8 +52,9 @@
 
 @if($data_count != 0)
   @section('favorite-btn')
+  <div class="fav">
   <button class="fav-btn" ><a href="{{ route('favorite_select') }}">お気に入り選択</a></button>
-  <!-- <button type="submit"  form="fav_btn"></button> -->
+  </div>
   @endsection
 @endif
 
@@ -74,6 +75,7 @@
     </form>
   </div>
 
+    <!-- お気に入り登録した写真の枠線に色をつける -->
     @if($image->favorite === 1)
       <script type="text/javascript">
         const fav_border = document.querySelector('.btn')
