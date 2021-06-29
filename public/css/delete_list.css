@@ -24,6 +24,14 @@
     border-radius: 4%;  
     font-size: 1em;
   }
+  .dele-clear-btn {
+    display: relative;
+    top: -20px;
+    margin-left: 40px;
+    padding: 3px 7px;
+    border-radius: 4%;  
+    font-size: 1em;
+  }
   .top-pagi {
     text-align: center;
     margin: 0 600px;   

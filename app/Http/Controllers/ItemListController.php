@@ -88,8 +88,16 @@ class ItemListController extends Controller
 
         $checked_items = Item::find($checked_ids[0]);
 
-        for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {  
-            $checked_items[$i]->update(['favorite' => 1]);
+        // "確定ボタン"と"解除ボタン"の処理
+        if($request->has('set')){
+            for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {  
+                $checked_items[$i]->update(['favorite' => 1]);
+            }
+        }
+        if($request->has('clear')){
+            for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {  
+                $checked_items[$i]->update(['favorite' => 0]);
+            }
         }
 
         return redirect('/list');
