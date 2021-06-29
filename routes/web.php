@@ -29,7 +29,11 @@ Route::get('/delete_list', 'ItemListController@deleteList')->name('delete_list')
 
 Route::get('/favorite_select', 'ItemListController@favoriteSelect')->name('favorite_select');
 
+Route::get('/favorite_select_clear', 'ItemListController@favoriteSelectToClear')->name('favorite_select_clear');
+
 Route::post('/favorite_decided', 'ItemListController@favoriteDecided')->name('favorite_decided');
+
+Route::post('/favorite_clear', 'ItemListController@favoriteClear')->name('favorite_clear');
 
 Route::post('/delete', 'ItemListController@delete');
 

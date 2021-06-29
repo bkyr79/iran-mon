@@ -53,8 +53,13 @@
 @if($data_count != 0)
   @section('favorite-btn')
   <div class="fav">
-  <button class="fav-btn" ><a href="{{ route('favorite_select') }}">お気に入り選択</a></button>
-  </div>
+  @if($not_fav_count > 0)
+  <button class="fav-btn"><a href="{{ route('favorite_select') }}">お気に入り選択</a></button>
+  @endif
+  @if($fav_count > 0)
+  <button class="fav-clear-btn"><a href="{{ route('favorite_select_clear') }}">お気に入り解除</a></button>
+  @endif
+</div>
   @endsection
 @endif
 

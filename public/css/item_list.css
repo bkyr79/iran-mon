@@ -41,6 +41,17 @@
   border-color: #007bff;
   border-radius: 4%;
 }
+.fav-clear-btn {
+  position: relative;
+  left: 75px;
+  top: 25px;
+  padding: 4px 15px;
+  margin-left: 10px;
+  cursor: pointer;
+  color: #007bff;
+  border-color: #007bff;
+  border-radius: 4%;
+}
 .image-list {
   text-align: center;
 }

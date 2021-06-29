@@ -21,10 +21,14 @@ class ItemListController extends Controller
         //where句で条件指定することで、ログインユーザーの商品のみを表示させる
         $uploads = Item::orderByRaw("updated_at desc, created_at desc, id desc")->where('user_id', '=', Auth::id())->paginate(12);
         $data_count = Item::where('user_id', '=', Auth::id())->count();
+        $fav_count = Item::where('favorite', '=', 1)->count();
+        $not_fav_count = Item::where('favorite', '=', 0)->count();
         
         return view("item_list", [
             "images" => $uploads,
             "data_count" => $data_count,
+            "fav_count" => $fav_count,
+            "not_fav_count" => $not_fav_count,
         ]);
     }
 
@@ -81,23 +85,35 @@ class ItemListController extends Controller
         return view("favorite_select", ['images' => $images]);
     }
 
-    // checkした写真をお気に入り登録する
+    // お気に入り解除画面を表示させる
+    public function favoriteSelectToClear(){
+        $images = Item::orderByRaw("updated_at desc, created_at desc, id desc")->where('user_id', '=', Auth::id())->paginate(12);
+        return view("favorite_clear", ['images' => $images]);
+    }
+
+    // checkした写真をお気に入り"登録"する
     public function favoriteDecided(Request $request){
+
+        $checked_ids[] = $request->fav_checks;
+
+        $checked_items = Item::find($checked_ids[0]);
+
+        for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {  
+            $checked_items[$i]->update(['favorite' => 1]);
+        }
+
+        return redirect('/list');
+    }
+
+    // checkした写真をお気に入り"解除"する
+    public function favoriteClear(Request $request){
         
         $checked_ids[] = $request->fav_checks;
 
         $checked_items = Item::find($checked_ids[0]);
 
-        // "確定ボタン"と"解除ボタン"の処理
-        if($request->has('set')){
-            for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {  
-                $checked_items[$i]->update(['favorite' => 1]);
-            }
-        }
-        if($request->has('clear')){
-            for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {  
-                $checked_items[$i]->update(['favorite' => 0]);
-            }
+        for ($i=0; $i<count($checked_ids, COUNT_RECURSIVE)-1; $i++) {  
+            $checked_items[$i]->update(['favorite' => 0]);
         }
 
         return redirect('/list');
