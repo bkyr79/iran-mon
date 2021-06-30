@@ -55,6 +55,9 @@
 .image-list {
   text-align: center;
 }
+.main-form {
+  max-height: 246px;
+}
 .image-btn {
   width: 100%;
   display: inline-block;
