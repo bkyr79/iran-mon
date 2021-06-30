@@ -52,6 +52,14 @@
   border-color: #007bff;
   border-radius: 4%;
 }
+.fav-btn-a {
+  text-decoration: none;
+  display: block;
+}
+.fav-clear-btn-a {
+  text-decoration: none;
+  display: block;
+}
 .image-list {
   text-align: center;
 }
