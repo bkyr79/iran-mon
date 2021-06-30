@@ -23,6 +23,7 @@
     padding: 3px 7px;
     border-radius: 4%;  
     font-size: 1em;
+    cursor: pointer;
   }
   .dele-clear-btn {
     display: relative;
