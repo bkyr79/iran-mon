@@ -41,6 +41,12 @@
   border-color: #007bff;
   border-radius: 4%;
 }
+.fav-btn a{
+  text-decoration: none;
+}
+.fav-clear-btn a{
+  text-decoration: none;
+}
 .fav-clear-btn {
   position: relative;
   left: 75px;
