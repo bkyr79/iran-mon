@@ -35,7 +35,7 @@
   position: relative;
   left: 75px;
   top: 25px;
-  padding: 4px 15px;
+  padding: 4px 15px 4px 10px;
   cursor: pointer;
   color: #007bff;
   border-color: #007bff;
@@ -83,8 +83,8 @@
   float: right;
 }
 .title-fav-star {
-  width: 27px;
-  height: 27px;  
+  width: 23px;
+  height: 23px;  
 }
 .fav-star {
   position: relative;
