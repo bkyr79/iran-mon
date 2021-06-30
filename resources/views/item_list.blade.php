@@ -65,6 +65,7 @@
 
 @section('content')
   <div class="image-list">
+
   @foreach($images as $image)
   <div type="button" class="delete-confirm btn-f btn" value="A001" data-toggle="modal" data-target="#confirm-delete">
     <form action="/itemlist" name="sampleform" method="post" onsubmit="return func1()">
@@ -78,16 +79,10 @@
       @csrf
       <input type="checkbox" class="fav-check" name="fav_checks[]" value="{{ $image->id }}" style="display:none;">
     </form>
-  </div>
-
-    <!-- お気に入り登録した写真の枠線に色をつける -->
     @if($image->favorite === 1)
-      <script type="text/javascript">        
-        fav_border = document.querySelector('.btn')
-        fav_border.classList.remove('btn')
-        fav_border.classList.add('fav-btn-success')
-      </script>
+    <img src="{{ asset('storage/1745 21.53.32 21.58.53.png') }}" class="fav-star">
     @endif
+  </div>
 
   @endforeach
   </div>

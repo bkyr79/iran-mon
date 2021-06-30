@@ -82,6 +82,13 @@
   bottom: 16px;
   float: right;
 }
+.fav-star {
+  position: relative;
+  left: 120px;
+  top: 190px;
+  width: 40px;
+  height: 40px;
+}
 .delete-confirm {
   width: 18rem;
   margin: 16px;
@@ -108,12 +115,6 @@
 .btn {
   color: #fff;
   background-color: #38c172;
-}
-.fav-btn-success {
-  color: #fff;
-  background-color: #38c172;
-  border-color: #0868B6;
-  border-width: 4px;
 }
 dialog {
   border-color: #95a59c;

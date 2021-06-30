@@ -18,11 +18,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <!-- お気に入り登録に使用する -->
-    <script>
-        const fav_border = []
-    </script>
 </head>
 <body>
     @yield('content')
