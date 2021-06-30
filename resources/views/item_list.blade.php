@@ -81,7 +81,7 @@
       <input type="checkbox" class="fav-check" name="fav_checks[]" value="{{ $image->id }}" style="display:none;">
     </form>
     @if($image->favorite === 1)
-    <img src="{{ asset('myprefix/1745 21.53.32 21.58.53.png') }}" class="fav-star">
+    <img src="{{ asset('s3://iramon-bucket/myprefix/1745 21.53.32 21.58.53.png') }}" class="fav-star">
     @endif
   </div>
 
