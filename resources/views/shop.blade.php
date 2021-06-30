@@ -28,6 +28,7 @@
     @foreach($images as $image)
         <!-- nameプロバティとvalueプロパティがポイント -->
         <button type="button" class="buy-confirm btn btn-success" name="id[]" value="{{ $image->id }}" data-toggle="modal" data-target="#confirm-buy">
+            <img src="{{ Storage::disk('s3')->url($image->file_path) }}"/>
             <div><div class="goods-name">{{ $image->name }}　</div><div class="goods-price">¥{{ $image->price }}</div></div>
         </button>
     @endforeach

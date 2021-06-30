@@ -39,6 +39,7 @@
     @csrf
     <input type="checkbox" name="del_checks[]" value="{{ $image->id }}">
     <div class="delepage-img">
+      <img src="{{ Storage::disk('s3')->url($image->file_path) }}"/>
     </div>
     <p class="goods_name"><span>{{ $image->name }}</span></p>
   </div>
