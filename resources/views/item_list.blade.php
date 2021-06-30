@@ -55,9 +55,9 @@
   <div class="fav">
   @if($not_fav_count > 0)
   <button class="fav-btn">
-    <a href="{{ route('favorite_select') }}">
+    <a href="{{ route('favorite_select') }}" style="text-decoration: none">
     <span><img src="{{ Storage::disk('s3')->url('myprefix/1745 21.53.32 21.58.53.png') }}" class="title-fav-star"></span>
-    <span style="text-decoration: none">お気に入り選択</span>
+    お気に入り選択
     </a>
   </button>
   @endif
