@@ -92,12 +92,11 @@
   height: 23px;  
 }
 .fav-star {
-  position: relative;
+  /* position: relative;
   left: 120px;
-  top: 290px;
+  top: 290px; */
   width: 40px;
   height: 40px;
-  z-index: 1;
 }
 .delete-confirm {
   width: 18rem;
