@@ -79,15 +79,15 @@
       <img src="{{ Storage::disk('s3')->url($image->file_path) }}"/>
     </button>
     <input type="text" class="goods_name" name="goods_name" value="{{ $image->name }}">
+    @if($image->favorite === 1)
+    <img src="{{ Storage::disk('s3')->url('myprefix/1745 21.53.32 21.58.53.png') }}" class="fav-star">
+    @endif
     <input type="hidden" name="id" value="{{ $image->id }}">
     </form>
     <form action="" id="fav_btn" method="post">
       @csrf
       <input type="checkbox" class="fav-check" name="fav_checks[]" value="{{ $image->id }}" style="display:none;">
     </form>
-    @if($image->favorite === 1)
-    <img src="{{ Storage::disk('s3')->url('myprefix/1745 21.53.32 21.58.53.png') }}" class="fav-star">
-    @endif
   </div>
 
   @endforeach
