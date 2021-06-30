@@ -35,7 +35,8 @@
   position: relative;
   left: 75px;
   top: 25px;
-  padding: 4px 15px 3px 6px;
+  /* padding: 4px 15px 3px 6px; */
+  padding: 0px 0px;
   cursor: pointer;
   color: #007bff;
   border-color: #007bff;
@@ -45,6 +46,7 @@
   position: relative;
   left: 75px;
   top: 25px;
+  /* padding: 4px 15px; */
   padding: 4px 15px;
   margin-left: 10px;
   cursor: pointer;
