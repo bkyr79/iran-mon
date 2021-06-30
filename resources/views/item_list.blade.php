@@ -73,7 +73,7 @@
 
   @foreach($images as $image)
   <div type="button" class="delete-confirm btn-f btn" value="A001" data-toggle="modal" data-target="#confirm-delete">
-    <form action="/itemlist" name="sampleform" method="post" onsubmit="return func1()">
+    <form action="/itemlist" name="sampleform" method="post" onsubmit="return func1()" class="main-form">
     @csrf
     <button type="submit" class="image-btn">
       <img src="{{ Storage::disk('s3')->url($image->file_path) }}"/>
