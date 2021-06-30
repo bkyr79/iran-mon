@@ -89,6 +89,7 @@
   height: 23px;  
 }
 .fav-star {
+  display: inline-block;
   position: relative;
   left: 120px;
   top: 290px;
