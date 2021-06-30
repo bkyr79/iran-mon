@@ -55,9 +55,6 @@
 .image-list {
   text-align: center;
 }
-.main-form {
-  z-index: 0;
-}
 .image-btn {
   width: 100%;
   display: inline-block;
