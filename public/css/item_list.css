@@ -82,6 +82,10 @@
   bottom: 16px;
   float: right;
 }
+.title-fav-star {
+  width: 27px;
+  height: 27px;  
+}
 .fav-star {
   position: relative;
   left: 120px;
