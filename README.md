@@ -16,7 +16,7 @@
 <hr>
 
 ### お気に入り登録
-<img width="1436" alt="" src="">
+<img width="993" alt="お気に入り登録機能" src="https://user-images.githubusercontent.com/53036816/124118380-3ac2b100-daac-11eb-8262-2160392d93de.png">
 お気に入りとして管理できます。お気に入り登録すると、他の人が買えない状態になり、うっかり削除も防げます。
 <hr>
 
