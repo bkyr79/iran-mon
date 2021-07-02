@@ -68,6 +68,6 @@ class ItemController extends Controller
 			}
 		}
 
-		return redirect("/list");			
+		return redirect("/list")->with('get_new_sign', '新たに商品を手に入れました');
 	}
 }

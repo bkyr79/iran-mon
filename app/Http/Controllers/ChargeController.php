@@ -41,7 +41,9 @@ class ChargeController extends Controller
                 'currency' => 'jpy'
             ));
 
-			return redirect("/list");
+            // フラッシュデータをもたせることで購入直後の商品を光らせる
+			return redirect("/list")->with('get_new_sign', '新たに商品を手に入れました');
+
         } catch (\Exception $ex) {
             return $ex->getMessage();
         }

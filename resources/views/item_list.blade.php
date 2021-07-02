@@ -72,7 +72,13 @@
   <div class="image-list">
 
   @foreach($images as $image)
+
+  @if (session('get_new_sign') && $image === $images[0])
+  <div type="button" class="delete-confirm btn-f btn shine" value="A001" data-toggle="modal" data-target="#confirm-delete">
+  @else
   <div type="button" class="delete-confirm btn-f btn" value="A001" data-toggle="modal" data-target="#confirm-delete">
+  @endif
+
     <form action="/itemlist" name="sampleform" method="post" onsubmit="return func1()" class="main-form">
     @csrf
     <button type="submit" class="image-btn">
