@@ -16,8 +16,9 @@ class ShopListController extends Controller
     }
 
     function index(){
-        $userid_of_items = Item::distinct()->get('user_id')->toArray();
+        $userid_of_items = Item::distinct()->where('favorite', '=', 0)->get('user_id')->toArray();
 
+                         // idがItemsテーブルのuser_idに含まれているユーザー情報(つまり、アイテムを所有しているユーザーの情報)
         $shop_owner_id = DB::table('users')->whereIn('id', $userid_of_items)->get();
 
         return view("shop_list", [
