@@ -34,8 +34,7 @@
   <button type="submit" class="stripe-button-el-dummy" id="stripe-button-el" style="visibility: visible;"><span style="display: block; min-height: 30px;">はい</span></button>
   
   <!-- ローダー -->
-  <div id="loading" style="display: none"><img src="/storage/uploads/ajax-loader.gif"></div>
-
+  <div id="loading" style="display: none"><img src="{{ Storage::disk('s3')->url('myprefix/ajax-loader.gif') }}"></div>
   <script>
     document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
     document.getElementsByClassName("stripe-button-el-dummy")[0].style.display = 'none';
