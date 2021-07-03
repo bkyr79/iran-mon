@@ -21,8 +21,8 @@ class ItemListController extends Controller
         //where句で条件指定することで、ログインユーザーの商品のみを表示させる
         $uploads = Item::orderByRaw("updated_at desc, created_at desc, id desc")->where('user_id', '=', Auth::id())->paginate(12);
         $data_count = Item::where('user_id', '=', Auth::id())->count();
-        $fav_count = Item::where('favorite', '=', 1)->count();
-        $not_fav_count = Item::where('favorite', '=', 0)->count();
+        $fav_count = Item::where('favorite', '=', 1)->where('user_id', '=', Auth::id())->count();
+        $not_fav_count = Item::where('favorite', '=', 0)->where('user_id', '=', Auth::id())->count();
         
         return view("item_list", [
             "images" => $uploads,
