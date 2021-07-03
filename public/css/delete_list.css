@@ -75,6 +75,9 @@
     width: 100%;
     height: 246px;
   }
+  input[type=checkbox] {
+    transform: scale(1.5);
+  }
   .delepage-img {
     width: 92%;
     display: inline-block;
