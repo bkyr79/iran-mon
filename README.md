@@ -26,6 +26,7 @@
 
 ## URL
 #### https://www.bkyr79.com/
+（現在は停止中）
 <hr>
 
 ##### Stripe決済時入力内容（テスト用）
